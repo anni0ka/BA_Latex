@@ -2,15 +2,15 @@
 TEMPLATE_PATH				:= templates/feif
 
 # Configure programs to use
-PDF_VIEWER 					:= evince
+PDF_VIEWER 					:= xdg-open
 
 # Configure main input files
 MAIN_FILE_TEX				:= main.tex
-BIBLIOGRAPHY				:= common/bibliography.bib
+BIBLIOGRAPHY				:= common/bibliography1.bib
 
 # Configure output files
 OUTPUT_DIR					:= build
-OUTPUT_FILE					:= Paper1024
+OUTPUT_FILE					:= BachelorArbeit
 
 PACKAGE_DIR					:= $(OUTPUT_DIR)/package
 

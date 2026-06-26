@@ -332,7 +332,7 @@
             
             \vspace{1cm}
             
-            \huge{\FEIFAuthorsName}
+            \LARGE{\FEIFAuthorsName}
 
             \vspace{1.0cm}
             
@@ -393,18 +393,18 @@
                 Coburg University of Applied Sciences\\
                 Faculty of Electrical Engineering and Computer Science\par
                 }            \end{Large}
-            \vspace{1.5cm}
+            \vspace{1.0cm}
 
             \Large{\ifgerman{Studiengang: }{Degree program: }\FEIFStudyProgram}
-            \vspace{1.5cm}
+            \vspace{1.0cm}
 
             \Large{\FEIFThesisType}
             \vspace{1cm}
 
-            \Huge{\FEIFTitle}
+            \LARGE{\FEIFTitle}
             \vspace{2cm}
 
-            \huge{\FEIFAuthorsName}
+            \LARGE{\FEIFAuthorsName}
             \vspace{2cm}
             
             \Large{\ifgerman{Abgabe des Arbeit:}{Submission date:} \FEIFSubmissionDate}
@@ -555,15 +555,11 @@
 % Bibliography
 \newcommand{\printfeifbibliography}
 {
-  \iftoggle{anyCitations}{        
-        \clearpage
-        \phantomsection
-        \renewcommand*{\refname}{\hscrefname}
-        \addcontentsline{toc}{section}{\refname}
-        \bibliographystyle{alphadin}
-  }{
-    \renewcommand*{\refname}{}
-  }  
+  \clearpage
+  \phantomsection
+  \renewcommand*{\refname}{\hscrefname}
+  \addcontentsline{toc}{section}{\refname}
+  \bibliographystyle{plainnat}
 }
 
 % Abstracts
