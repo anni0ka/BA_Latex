@@ -32,7 +32,12 @@
 \RequirePackage{listings}
 \RequirePackage{pdfpages}                         % Include existing PDFs into the work
 \RequirePackage{ifthen}                           % Include existing PDFs into the work
-\RequirePackage{nomencl}                          % Support for nomenclatures ("List of Symbols")
+% The current TeX Live ships an incompatible nomencl/tocbasic combination.
+% Keep the FEIF template usable by providing no-op fallbacks instead.
+% \RequirePackage{nomencl}                          % Support for nomenclatures ("List of Symbols")
+\providecommand{\nomenclature}[2]{}
+\providecommand{\printnomenclature}[1]{}
+\providecommand{\makenomenclature}{}
 \RequirePackage{etoolbox}                         % Easily patch commands
 \RequirePackage{amsmath}                          % Includes a plethora of mathematical packages 
 \RequirePackage{amssymb}                          % Source mathematical symbols like \sin
@@ -53,6 +58,8 @@
 \makeatother
 
 \newcommand{\ifgerman}[2]{\ifthenelse{\equal{\lang}{ngerman}}{#1}{#2}}
+\providecommand{\ThesisType}{Bachelor Thesis}
+\providecommand{\FEIFThesisType}{\ThesisType}
 \newcommand{\FEIFCountEntriesFileName}{\jobname.feif}
 \AtBeginDocument{\ifgerman{\selectlanguage{ngerman}}{\selectlanguage{english}}}
 \AtEndDocument
@@ -160,6 +167,8 @@
 % -------------------------------------------------------------------
 % Names
 % -------------------------------------------------------------------
+\providecommand*{\nomname}{List of Symbols}
+\providecommand*{\acronymname}{Acronyms}
 \newcommand*{\hscrefname}{Literaturverzeichnis}               % Bibliography
 \newcommand*{\acknowledgementname}{Acknowledgements}          % Acknowledgement
 
@@ -369,7 +378,7 @@
           {
             \centering
             \ifgerman{
-              \includegraphics[width=.8\textwidth]{logo_hscoburg_de_rot.pdfpages}%
+              \includegraphics[width=.8\textwidth]{logo_hscoburg_de_rot.pdf}%
             }
             {
               \includegraphics[width=.8\textwidth]{logo_hscoburg_en_rot.pdf}%

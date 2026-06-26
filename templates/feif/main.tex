@@ -4,8 +4,8 @@
 
 %\documentclass[ngerman, praxis]{template/feif}  % For a German Internship Report ("Praxisbericht").
 %\documentclass[praxis]{template/feif}           % For an English Internship Report ("Praxisbericht").
-%\documentclass[ngerman]{template/feif}          % For a German thesis (Bachelorarbeit, Masterarbeit, Seminararbeit, ...)
-\documentclass{template/feif}                   % For an English thesis (Bachelorarbeit, Masterarbeit, Seminararbeit, ...)
+\documentclass[ngerman]{template/feif}          % For a German thesis (Bachelorarbeit, Masterarbeit, Seminararbeit, ...)
+%\documentclass{template/feif}                   % For an English thesis (Bachelorarbeit, Masterarbeit, Seminararbeit, ...)
 \input{common/packages.tex}
 \input{common/commands.tex}
 
@@ -25,9 +25,10 @@
 % Use one thesis type:
 %\def\ThesisType{Seminararbeit}
 %\def\ThesisType{Bachelorarbeit}
+\def\FEIFThesisType{Bachelorarbeit}
 %\def\ThesisType{Masterarbeit}
 %\def\ThesisType{Bachelor Thesis}
-\def\FEIFThesisType{Master Thesis}
+%\def\FEIFThesisType{Master Thesis}
 %\def\ThesisType{Seminar Paper}
 
 
@@ -47,9 +48,9 @@
 
 %\include{Verzeichnisse/Worttrennungen}
 \input{lists/acronyms}  
-\makenomenclature
-\InputIfExists{./lists/symbols.tex}
-\InputIfExists{./lists/glossary.tex}
+% \makenomenclature
+% \InputIfExists{./lists/symbols.tex}
+% \InputIfExists{./lists/glossary.tex}
 \makeglossaries
 \begin{document}
 \maketitle
@@ -58,21 +59,21 @@
 % Optional notice to the reader ("Vermerk")
 \IfExists{./secs/Z0vermerk.tex}{\thispagestyle{empty}\input{secs/Z0vermerk}}
 
-\begin{abstract}
-    \input{./secs/A0abstract}
-\end{abstract}
+%\begin{abstract}
+%    \input{./secs/A0abstract}
+%\end{abstract}
 \tableofcontents  
 \listoffigures
 \listoftables
 \lstlistoflistings
-\listofsymbols
+% \listofsymbols
 \listofacronyms  
 \mainmatter
 \input{secs/structure.tex}
 \backmatter  
-\IfExists{./secs/C0ack}{\begin{acknowledgement}\input{./secs/C0ack}\end{acknowledgement}}
+%\IfExists{./secs/C0ack}{\begin{acknowledgement}\input{./secs/C0ack}\end{acknowledgement}}
 \printfeifglossary   
 \printfeifbibliography
 \bibliography{common/bibliography}
-\MakeDeclarationOfHonor
+%\MakeDeclarationOfHonor
 \end{document}
