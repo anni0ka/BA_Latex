@@ -1,0 +1,19 @@
+\subsubsection{Bedeutung und Einsatz von LiDAR-Systemen}
+
+LiDAR (Light Detection and Ranging) ist ein Laser-basiertes System zur Erkennung dreidimensionaler Strukturen von Objekten und zur Bestimmung ihrer Distanz. 
+Erstmalig wurden luftgestützte LiDAR-Systeme 1964 in der Forstwirtschaft zur Messung von Baumhöhen eingesetzt. Bis heute wird kontinuierlich an dieser Technologie geforscht, da sie in verschiedenen Anwendungsbereichen maßgebliche Vorteile mit sich bringen. Im Gegensatz zu Kameras benötigen LiDAR-Systeme kein externes Umgebungslicht. Außerdem sind die Messungen materialunabhängig und liefern extrem schnell hochpräzise Ergebnisse.
+
+die Gewinnung von LiDAR-Daten erfolgt über unterschiedliche Plattformen, deren Wahl jeweils von der spezifischen Anforderungen an Reichweite und Präzision abhängt. Während stationäre Systeme wie das Terrestrial Laser Scanning (TLS) durch ihre feste Montage zwar in ihrem räumlichen Wirkungsbereich begrenzt sind, liefern sie hochpräzise Aufnahmen einzelner Objekte. Ein vergleichbar hohe Genauigkeit bieten Mobile Laser Scanning (MLS) Systeme, die für den Einsatz auf beweglichen Plattformen installiert sind und zum Beispiel im Straßenverkehr Anwendung finden, jedoch auf befahrbare Routen beschränkt bleiben. Für einen weiträumigen Überblick werden Airborne Laser Systems (ALS) in Flugzeugen oder Drohen montiert. Ihre Messgenauigkeit ist im Vergleich zu den vorherigen Verfahren etwas geringer, sie sind jedoch ideal für Anwendungen in der Fernerkundung geeignet. Den globalen Maßstab bilden Spaceborne LiDAR Systems, die zwar eine deutlich geringere Auflösung aufweisen, allerdings einen umfassenden Überblick über das gesamte Ökosystem ermöglichen. 
+
+
+
+\subsubsection{Funktionsweise und Ergebnisse}
+
+Die Erfassung von Objekten erfolgt durch das Aussenden eines modulierten Laserstrahls, der von der Oberfläche des Objekts reflektiert wird. Das System misst die Laufzeit (Time of Flight), die das Signal benötigt, um zum Empfänger zurückzukehren. Dieser fokussiert das reflektierte Licht auf einen Photodetektor, der die Photonen in elektrische Signale umwandelt, woraus die Distanz berechnet wird. Ein Strahllenkungssystem steuert die Laserstrahlen in verschiedenen Winkeln, um das Sichtfeld (Field of View) abzutasten. Neben dem Laserscanner sind eine inertiale Messeinheit zur Messung von Eigenbewegung, Neigung und Orientierung des Sensors sowie ein globales Positionsbestimmungssystem zur zeitgenauen Erfassung der geografischen Position von Punkten integriert.
+
+Dadurch ist es möglich pro Punkt die exakten X-Y-Z-Koordinaten im Raum zu definieren, wodurch im Ergebnis eine Punktwolke des gesamten Objekts entsteht. Neben der Position liefert das System Informationen über die Intensität der reflektierten Energie, was Rückschlüsse auf das Oberflächenmaterial zulässt. Auch auf die Struktur der Oberfläche kann geschlossen werden, nämlich durch die Anzahl der Rückstrahlungen (Number of Returns) pro Strahl. Wenn ein Laserimpuls durch das Objekt dringt, erzeugen teildurchlässige Strukturen wie Vegetation mehrere Echos. Feste Oberflächen senden dagegen nur einen Rückstrahl.
+Ein Wert, der nicht mit dem LiDAR-System gemessen wird, ist der Normal Difference Vegetation Index (NDVI), der aus multispektralen Luftbildern berechnet wird. Ein Abgleich mit diesem Index ist jedoch sehr nützlich, da dieser als Indikator für die Vitalität von Vegetationsbedeckung fungiert.
+
+Aus diesen Daten können unterschiedliche Merkmale abgeleitet werden. Für Vegetation ist besonders der höchste Rückstrahlpunkt (maximale Z-Koordinate) sowie die mittlere Höhe des Kronendachs und die Kronendichte interessant. Durch die dreidimensionale Erfassung ist eine Ableitung der vertikalen Vegetationsstruktur sowie die Ableitung von Geländestrukturen unter dem Blätterdach möglich.
+
+  
