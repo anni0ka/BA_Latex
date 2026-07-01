@@ -555,11 +555,15 @@
 % Bibliography
 \newcommand{\printfeifbibliography}
 {
-  \clearpage
-  \phantomsection
-  \renewcommand*{\refname}{\hscrefname}
-  \addcontentsline{toc}{section}{\refname}
-  \bibliographystyle{plainnat}
+  \iftoggle{anyCitations}{        
+        \clearpage
+        \phantomsection
+        \renewcommand*{\refname}{\hscrefname}
+        \addcontentsline{toc}{section}{\refname}
+        \bibliographystyle{myalphadin}
+  }{
+    \renewcommand*{\refname}{}
+  }  
 }
 
 % Abstracts
