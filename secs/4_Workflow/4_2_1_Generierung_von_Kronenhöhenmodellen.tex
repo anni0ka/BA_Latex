@@ -1,0 +1,9 @@
+\subsubsection{Generierung von Kronenhöhenmodellen}
+
+Für die rasterbasierte Einzelbaumsegmentierung bildet das CHM die fundamentale Datengrundlage. Im Gegensatz zu herkömmlichen DOMs isoliert das CHM die absolute Vegetationshöhe von der zugrundeliegenden Topografie, indem es die relative Höhe der Objekte direkt über der Erdoberfläche abbildet. Auf dieser Grundlage können nachfolgende Algorithmen Baumspitzen lokalisieren und darauf aufbauend Individuen segmentieren.
+
+Die Überführung der 3D-Punktwolke in dieses 2D-Rasterformat erfolgt wie auch die Datenvorbereitung über die PDAL-Bibliothek in Python. Als Basis dienen die normalisierten und gefilterten LiDAR-Kacheln, deren Z-Koordinaten bereits der tatsächlichen Höhe über dem Boden entsprechen. Die Punktwolke wird in ein reguläres Gitter im GeoTIFF-Format mit einer räumlichen Auflösung von 0,35 m überführt. \cite{fuIndividualTreeSegmentationUAV2024}
+
+Um die spezifischen Anforderungen der darauffolgenden Prozessierungsschritte optimal zu bedienen, sieht der Workflow die Berechnung von zwei differenzierten CHM-Versionen vor. Für die Detektion der Baumspitzen wird eine Variante mit Fenstergrößen von drei Pixeln generiert. Diese Operation bewirkt eine leichte Glättung des Modells und schließt kleinskalige Datenlücken innerhalb des Kronendachs. Dies verhindert, dass der Detektionsalgorithmus durch abstehende Äste oder lokales Rauschen fälschlicherweise nicht existente Bäume identifiziert. Für die darauffolgende Abgrenzung der Baumkronen wird eine zweite CHM-Varainte mit einer minimalen Fenstergröße von einem Pixel generiert. Dieses Modell liefert eine maximal scharfe Abbildung der Kronenränder, sodass feine Strukturen und exakte geometrische Grenzen zwischen benachbarten Bäumen erhalten bleiben. \cite{munzingerMappingUrbanForest2022}
+
+Bild mit beiden Polygonen (weich und scharf)!!
