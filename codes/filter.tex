@@ -1,0 +1,12 @@
+\begin{lstlisting}[label={lst:pdal_filter}, caption={[Filter]Logische Filterkriterien für die Vegetationsextraktion}, breaklines=true, breakatwhitespace=true]
+{
+    "type": "filters.expression",
+    "expression": "(" \
+        "(NumberOfReturns > 2) || " \
+        "(NumberOfReturns <= 2 && Planarity < 0.6 && Linearity > 0.8)" \
+        ") && (Intensity < 140) && " \
+        "(Infrared + Red > 0) && " \
+        "(((Infrared - Red) / (Infrared + Red)) > 0.0)"
+} 
+
+\end{lstlisting}
