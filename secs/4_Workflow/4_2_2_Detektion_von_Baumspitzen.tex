@@ -1,0 +1,19 @@
+\subsubsection {Detektion von Baumspitzen}
+
+Auf Basis des generierten CHM erfolgt die Detektion der Baumspitzen. Jede identifizierte Spitze fungiert als eindeutiger Startpunkt für die nachfolgende Segmentierung. Die Präzision dieses Schrittes ist kritisch, da die Anzahl der detektierten Spitzen direkt die finale Anzahl der segmentierten Einzelbäume im Untersuchungsgebiet bestimmt. Bei der Detektion können zwei gegenläufige systematische Fehler auftreten. Während bei einer Übersegmentierung einzelne Äste fälschlicherweise als eigenständige Bäume klassifiziert werden, was die Gesamtzahl künstlich erhöht, führt eine Untersegmentierung zum genauen Gegenteil. Hierbei werden eng zusammenstehende oder ineinandergreifende Kronen als ein einziger Baum erfasst, wodurch kleinere oder unterständige Bäume unberücksichtigt bleiben. \cite{fuIndividualTreeSegmentationUAV2024}
+
+Um diese Fehler zu minimieren, wird das CHM zunächst mittels eines Gauß-Filters geglättet. Dies reduziert das Rauschen, welches durch Höhenvariationen im äußeren Blätterdach verursacht wird. Anschließend wird eine binäre Datenmaske generiert, die alle Pixel unterhalb einer Mindesthöhe von 1,5 m ausschließt, um Bodenvegetation zu eliminieren. Auf dem geglätteten Höhenmodell wird daraufhin innerhalb dieser Maske eine lokale Maximumsuche durchgeführt. Ein Pixel wird dabei als potenzielles Maximum definiert, wenn es innerhalb einer definierten Nachbarschaft den höchsten Wert aufweist. \cite{munzingerMappingUrbanForest2022}
+
+Da die Gauß-Glättung die realen Baumspitzen geometrisch leicht abflacht, wird für jeden identifizierten Maximum-Kandidaten sowohl die geglättete Höhe ($h_{smooth}$) als auch die Originalhöhe ($h_{raw}$) aus dem ursprünglichen CHM extrahiert. Da biologisch davon ausgegangen wird, dass höhere Bäume breitere Kronen ausbilden, erfordert eine präzise Detektion ein variables statt ein starres Suchfenster. Hierfür wird basierend auf $h_{smooth}$ über eine allometrische Potenzfunktion der theoretisch zu erwartende Kronenradius berechnet. Die empirischen Koeffizienten a und b werden aus dem städtischen Baumkataster kalibriert und durch einen Skalierungsfaktor ($s_{shrink}$) angepasst:
+\begin{equation}
+    \text{radius} = (a \cdot h_{smooth}^b) \cdot s_{shrink}
+\end{equation}
+Um biologisch unrealistische Werte bei extremen Baumdimensionen zu vermeiden, wird der berechnete Radius durch feste Schwellwerte nach unten und oben hin begrenzt. \cite{munzingerMappingUrbanForest2022}
+
+Im nächsten Schritt werden alle potenziellen Maxima absteigend nach ihrer geglätteten Höhe sortiert, um dominate Bäume im weiteren Prozess zu priorisieren. \cite{fuIndividualTreeSegmentationUAV2024} Zur Eliminierung von Fehlsegmentierungen wird ein iteratives Non-Maximum Suppression (NMS) angewendet. Hierbei wird ein Kandidat nur dann als finaler Spitzenpunkt akzeptiert, wenn sein euklidischer Abstand zu allen bereits bestätigten, höheren Bäumen einen dynamischen Schwellenwert überschreitet. Dieser minimale Abstand berechnet sich aus dem Kronenradius des größeren, bereits bestätigten Baumes multipliziert mit einem Überlappungsfaktor ($f_{NMS}$)
+\begin{equation}
+    \text{distanz}_{min} = \text{radius}_{existing} \cdot f_{NMS}
+\end{equation}
+Unterschreitet der Abstand diesen Wert, wird der kleinere Kandidat als Ast oder Nebenkrone verworfen. \cite{yuIndividualTreeSegmentation2024}
+
+Die verbleibenden, validierten Maxima werden mitsamt ihrer 3D-Koordinaten als Vektordaten im korrekten Koordinatensystem als GeoPackage-Format (GPKG) gespeichert.
