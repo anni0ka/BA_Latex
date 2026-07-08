@@ -1,14 +1,9 @@
 \subsubsection{NDVI Zuordnung}
 
-Zur quantitativen Erfassung des Vitalitätszustandes der segmentierten Bäume erfolgt eine spektrale NDVI-Zuordnung. Analog zur Vegetationsfilterung in der Vorverarbeitung werden hierfür die räumlich korrespondierenden Kacheln des DOPs genutzt. Die Berechnung erfolgt basierend auf den spektralen Bändern (Rot, Grün, Blau, NIR) nach der Formel (4.3)
+Zur quantitativen Erfassung des Vitalitätszustandes der segmentierten Bäume erfolgt eine spektrale NDVI-Zuordnung. Analog zur Vegetationsfilterung in der Vorverarbeitung werden hierfür die räumlich korrespondierenden Kacheln des DOPs genutzt. Die Berechnung erfolgt basierend auf den spektralen Bändern (Rot, Grün, Blau, NIR) nach der Formel:
 \begin{equation}
     \text{NDVI} = \frac{NIR - {Rot}} {NIR + {Rot}}
 \end{equation}
+Während der NDVI im Filterungsschritt lediglich als Schwellwert zur Klassifizierung dient, fungiert er hier als kontinuierliches Attribut.
 
-Während der NDVI im Filterungsschritt lediglich als Schwellwert zur Klassifizierung dient, fungiert er hier als kontinuierliches Attribut. D
-
-Das Kronenpolygon wird als geometrische Maske verwendet, um den NDVI für die relevanten Pixel der Baumkronen im DOP zu isolieren. Um einen repräsentativen Vitalitätswert zu erhalten, wird das arithmetische Mittel aller Pixel innerhalb dieser Fläche gebildet, wobei Artefakte wie Schattenwurf herausgefiltert werden.
-
-Ergänzend wird der NDVI direkt an der Pixelposition der Baumspitze ausgelesen. Da diese durch ihre exponierte Lage direkter Sonneneinstrahlung ausgesetzt ist, trägt sie eine präzisere spektrale Signatur als teils abgeschattete Randbereiche der Krone.
-
-Anschließend werden sowohl der mittlere NDVI der Kronenfläche als auch der punktuelle Wert an der Baumspitze als neue Attribute in der GPKG-Datei integriert.
+Das Kronenpolygon wird als geometrische Maske verwendet, um den NDVI für die relevanten Pixel der Baumkronen im DOP zu isolieren. Um einen repräsentativen Vitalitätswert zu erhalten, wird das arithmetische Mittel aller Pixel innerhalb dieser Fläche gebildet, wobei Artefakte wie Schattenwurf herausgefiltert werden. Ergänzend wird der NDVI direkt an der Pixelposition der Baumspitze ausgelesen. Da diese durch ihre exponierte Lage direkter Sonneneinstrahlung ausgesetzt ist, trägt sie eine präzisere spektrale Signatur als teils abgeschattete Randbereiche der Krone. Anschließend werden sowohl der mittlere NDVI der Kronenfläche als auch der punktuelle Wert an der Baumspitze als neue Attribute in der GPKG-Datei integriert. \cite{munzingerMappingUrbanForest2022}
