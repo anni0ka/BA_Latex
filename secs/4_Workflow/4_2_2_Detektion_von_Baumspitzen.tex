@@ -10,10 +10,10 @@ Da die Gauß-Glättung die realen Baumspitzen geometrisch leicht abflacht, wird 
 \end{equation}
 Um biologisch unrealistische Werte bei extremen Baumdimensionen zu vermeiden, wird der berechnete Radius durch feste Schwellwerte nach unten und oben hin begrenzt. \cite{munzingerMappingUrbanForest2022}
 
-Im nächsten Schritt werden alle potenziellen Maxima absteigend nach ihrer geglätteten Höhe sortiert, um dominate Bäume im weiteren Prozess zu priorisieren. \cite{fuIndividualTreeSegmentationUAV2024} Zur Eliminierung von Fehlsegmentierungen wird ein iteratives Non-Maximum Suppression (NMS) angewendet. Hierbei wird ein Kandidat nur dann als finaler Spitzenpunkt akzeptiert, wenn sein euklidischer Abstand zu allen bereits bestätigten, höheren Bäumen einen dynamischen Schwellenwert überschreitet. Dieser minimale Abstand berechnet sich aus dem Kronenradius des größeren, bereits bestätigten Baumes multipliziert mit einem Überlappungsfaktor ($f_{NMS}$)
+Im nächsten Schritt werden alle potenziellen Maxima absteigend nach ihrer geglätteten Höhe sortiert, um dominate Bäume im weiteren Prozess zu priorisieren. \cite{fuIndividualTreeSegmentationUAV2024} Zur Eliminierung von Fehlsegmentierungen wird ein iteratives Non-Maximum Suppression (\ac{NMS}) angewendet. Hierbei wird ein Kandidat nur dann als finaler Spitzenpunkt akzeptiert, wenn sein euklidischer Abstand zu allen bereits bestätigten, höheren Bäumen einen dynamischen Schwellenwert überschreitet. Dieser minimale Abstand berechnet sich aus dem Kronenradius des größeren, bereits bestätigten Baumes multipliziert mit einem Überlappungsfaktor ($f_{NMS}$)
 \begin{equation}
     \text{distanz}_{min} = \text{radius}_{existing} \cdot f_{NMS}
 \end{equation}
 Unterschreitet der Abstand diesen Wert, wird der kleinere Kandidat als Ast oder Nebenkrone verworfen. \cite{yuIndividualTreeSegmentation2024}
 
-Die verbleibenden, validierten Maxima werden mitsamt ihrer 3D-Koordinaten als Vektordaten im korrekten Koordinatensystem als GeoPackage-Format (GPKG) gespeichert.
+Die verbleibenden, validierten Maxima werden mitsamt ihrer 3D-Koordinaten als Vektordaten im korrekten Koordinatensystem als GeoPackage-Format (\ac{GPKG}) gespeichert.
