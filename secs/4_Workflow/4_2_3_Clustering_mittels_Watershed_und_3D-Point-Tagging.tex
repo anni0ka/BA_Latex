@@ -1,4 +1,4 @@
-\subsubsection {Clustering mittels Watershed und 3D-Point-Tagging}
+\subsubsection {Segmentierung mittels Watershed und 3D-Point-Tagging}
 
 Der abschließende Schritt der Einzelbaumsegmentierung transformiert die unstrukturierten Gesamtpunktwolke in eine objektorientierten Datenstruktur. Hierbei werden raster- und punktbasierte Analysemethoden kombiniert, um sowohl 2D-Kronenpolygone zu extrahieren als auch jedem LiDAR-Punkte eindeutig einem Baumindividuum per ID zuzuweisen.
 
@@ -6,6 +6,6 @@ Die Segmentierung basiert auf einem ungeglättetes CHM, da dieses im Gegensatz z
 
 Um eine unkontrollierte Ausbreitung der Segmente auf bodennahe Objekte zu verhindern, werden mittels einer binären Vegetationsmaske alle Pixel unterhalb einer Mindesthöhe von 1,0 m ausgeschlossen Ausgehend von den Markern expandieren die Segmente solange, bis sie an die Grenze der Vegetationsmaske oder an ein benachbartes Segment stoßen. Die resultierenden Berührungslinien definieren die Kronengrenzen. Das Ergebnis ist ein segmentiertes Raster, in dem jede zusammenhängende Pixelfläche den Wert der jeweiligen Baum-ID trägt. Diese Rasterflächen werden anschließend in 2D-Vektorpolygone konvertiert und zusammen mit den zugehörigen IDs als neuer Layer in das bestehende GPKG der Baumspitzen integriert. \cite{marcelloPerformanceIndividualTree2024b}
 
-Da die rasterbasierte Segmentierung primär die Oberfläche des Kronendaches abbildet, erfolgt im letzten Schritt die Überführung in den 3D-Raum, um vertikale Informationen der inneren Kronenarchitektur zu erhalten. Hierzu werden die X- und Y-Koordinaten jedes LiDAR-Punktes mittels einer affinen Matrix auf das segmentierte Raster projiziert, wodurch jeder Punkt die ID des korrespondierenden Pixels übernimmt. \cite{munzingerMappingUrbanForest2022} Dadurch wird die Punktwolke um ein ID-Attribut erweitert, das eine eindeutige Korrelation zwischen den 3D-Punktdaten und den in der GPKG-Datei hinterlegten 2D-Polygonen ermöglicht \cite{liIndividualTreeSegmentation2023}.
+Da die rasterbasierte Segmentierung primär die Oberfläche des Kronendaches abbildet, erfolgt im letzten Schritt die Überführung in den 3D-Raum, um vertikale Informationen der inneren Kronenarchitektur zu erhalten. Hierzu werden die X- und Y-Koordinaten jedes LiDAR-Punktes mittels einer affinen Matrix auf das segmentierte Raster projiziert, wodurch jeder Punkt die ID des korrespondierenden Pixels übernimmt. \cite{munzingerMappingUrbanForest2022} Dadurch wird die Punktwolke um ein ID-Attribut erweitert, das eine eindeutige Korrelation zwischen den 3D-Punktdaten und den in der GPKG-Datei hinterlegten 2D-Polygonen ermöglicht. \cite{liIndividualTreeSegmentation2023}
 
 
