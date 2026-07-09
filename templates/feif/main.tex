@@ -1,5 +1,8 @@
 \makeatletter
 \def\input@path{{./template/}}
+\renewcommand{\@biblabel}[1]{%
+  \parbox[t]{5cm}{\raggedright [#1]}%
+}
 \makeatother
 
 %\documentclass[ngerman, praxis]{template/feif}  % For a German Internship Report ("Praxisbericht").

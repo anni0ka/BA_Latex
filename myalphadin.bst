@@ -1290,9 +1290,7 @@ FUNCTION {article}
   format.online.lastcheck
   doi set.period.dash.check
   urn set.period.dash.check
-  format.doi.urn output
   issn set.period.dash.check
-  format.isbn.issn output
   note set.period.dash.check
   note output
   fin.entry
@@ -1863,37 +1861,14 @@ EXECUTE {initialize.et.al.char.used}
 FUNCTION {format.lab.names}
 { 's :=
   s num.names$ 'numnames :=
-
-  %% Ab 4 Autoren: nur erster Autor + et al.
-  numnames #3 >
-    {
-      s #1 "{ll}" format.name$
-      " et al."
-      *
-    }
-    {
-      %% Bis einschließlich 3 Autoren: alle Nachnamen mit Komma
-      numnames #1 >
-        {
-          numnames 'namesleft :=
-          #1 'nameptr :=
-          ""
-            { namesleft #0 > }
-            {
-              nameptr #1 =
-                { s nameptr "{ll}" format.name$ }
-                { ", " * s nameptr "{ll}" format.name$ * }
-              if$
-
-              nameptr #1 + 'nameptr :=
-              namesleft #1 - 'namesleft :=
-            }
-          while$
-        }
-        {
-          s #1 "{ll}" format.name$
-        }
-      if$
+  
+  numnames #1 >
+    { 
+      %% Wenn es mehr als 1 Autor gibt: Erster Autor und ein " +"
+      s #1 "{ll}" format.name$ " +" * }
+    { 
+      %% Wenn es exakt 1 Autor gibt: Nur der erste Autor
+      s #1 "{ll}" format.name$ 
     }
   if$
 }
@@ -1975,7 +1950,7 @@ FUNCTION {calc.label}
     }
   if$
   duplicate$
-   " + "
+   " "
   *
   year field.or.null
   *

@@ -1,435 +1,376 @@
 @article{chengRealTimeLiDARInertial2024,
-  title = {Real-{{Time LiDAR}}–{{Inertial Simultaneous Localization}} and {{Mesh Reconstruction}}},
+  title = {Real-{{Time LiDAR}}--{{Inertial Simultaneous Localization}} and {{Mesh Reconstruction}}},
   author = {Cheng, Yunqi and Xu, Meng and Wang, Kezhi and Chen, Zonghai and Wang, Jikai},
-  date = {2024-10-29},
-  journaltitle = {World Electric Vehicle Journal},
+  year = 2024,
+  month = oct,
+  journal = {World Electric Vehicle Journal},
   volume = {15},
   number = {11},
   pages = {495},
   issn = {2032-6653},
   doi = {10.3390/wevj15110495},
-  url = {https://www.mdpi.com/2032-6653/15/11/495},
   urldate = {2026-06-30},
-  abstract = {In this paper, a novel LiDAR–inertial-based Simultaneous Localization and Mesh Reconstruction (LI-SLAMesh) system is proposed, which can achieve fast and robust pose tracking and online mesh reconstruction in an outdoor environment. The LI-SLAMesh system consists of two components, including LiDAR–inertial odometry and a Truncated Signed Distance Field (TSDF) free online reconstruction module. Firstly, to reduce the odometry drift errors we use scan-to-map matching, and inter-frame inertial information is used to generate prior relative pose estimation for later LiDAR-dominated optimization. Then, based on the motivation that the unevenly distributed residual terms tend to degrade the nonlinear optimizer, a novel residual density-driven Gauss–Newton method is proposed to obtain the optimal pose estimation. Secondly, to achieve fast and accurate 3D reconstruction, compared with TSDF-based mapping mechanism, a more compact map representation is proposed, which only maintains the occupied voxels and computes the vertices’ SDF values of each occupied voxels using an iterative Implicit Moving Least Squares (IMLS) algorithm. Then, marching cube is performed on the voxels and a dense mesh map is generated online. Extensive experiments are conducted on public datasets. The experimental results demonstrate that our method can achieve significant localization and online reconstruction performance improvements. The source code will be made public for the benefit of the robotic community.},
+  abstract = {In this paper, a novel LiDAR--inertial-based Simultaneous Localization and Mesh Reconstruction (LI-SLAMesh) system is proposed, which can achieve fast and robust pose tracking and online mesh reconstruction in an outdoor environment. The LI-SLAMesh system consists of two components, including LiDAR--inertial odometry and a Truncated Signed Distance Field (TSDF) free online reconstruction module. Firstly, to reduce the odometry drift errors we use scan-to-map matching, and inter-frame inertial information is used to generate prior relative pose estimation for later LiDAR-dominated optimization. Then, based on the motivation that the unevenly distributed residual terms tend to degrade the nonlinear optimizer, a novel residual density-driven Gauss--Newton method is proposed to obtain the optimal pose estimation. Secondly, to achieve fast and accurate 3D reconstruction, compared with TSDF-based mapping mechanism, a more compact map representation is proposed, which only maintains the occupied voxels and computes the vertices' SDF values of each occupied voxels using an iterative Implicit Moving Least Squares (IMLS) algorithm. Then, marching cube is performed on the voxels and a dense mesh map is generated online. Extensive experiments are conducted on public datasets. The experimental results demonstrate that our method can achieve significant localization and online reconstruction performance improvements. The source code will be made public for the benefit of the robotic community.},
   langid = {english},
-  file = {C:\Users\keksp\Zotero\storage\7JVBSN3X\Cheng et al. - 2024 - Real-Time LiDAR–Inertial Simultaneous Localization and Mesh Reconstruction.pdf},
-  year = 2024
+  file = {C:\Users\keksp\Zotero\storage\7JVBSN3X\Cheng et al. - 2024 - Real-Time LiDAR–Inertial Simultaneous Localization and Mesh Reconstruction.pdf}
 }
 
 @article{fuIndividualTreeSegmentationUAV2024,
-  title = {Individual-{{Tree Segmentation}} from {{UAV}}–{{LiDAR Data Using}} a {{Region-Growing Segmentation}} and {{Supervoxel-Weighted Fuzzy Clustering Approach}}},
+  title = {Individual-{{Tree Segmentation}} from {{UAV}}--{{LiDAR Data Using}} a {{Region-Growing Segmentation}} and {{Supervoxel-Weighted Fuzzy Clustering Approach}}},
   author = {Fu, Yuwen and Niu, Yifang and Wang, Li and Li, Wang},
-  date = {2024-02-06},
-  journaltitle = {Remote Sensing},
+  year = 2024,
+  month = feb,
+  journal = {Remote Sensing},
   volume = {16},
   number = {4},
   pages = {608},
   issn = {2072-4292},
   doi = {10.3390/rs16040608},
-  url = {https://www.mdpi.com/2072-4292/16/4/608},
   urldate = {2026-06-28},
-  abstract = {Accurate individual-tree segmentation is essential for precision forestry. In previous studies, the canopy height model-based method was convenient to process, but its performance was limited owing to the loss of 3D information, and point-based methods usually had high computational costs. Although some hybrid methods have been proposed to solve the above problems, most canopy height model-based methods are used to detect subdominant trees in one coarse crown and disregard the over-segmentation and accurate segmentation of the crown boundaries. This study introduces a combined approach, tested for the first time, for treetop detection and tree crown segmentation using UAV–LiDAR data. First, a multiscale adaptive local maximum filter was proposed to detect treetops accurately, and a Dalponte region-growing method was introduced to achieve crown delineation. Then, based on the coarse-crown result, the mean-shift voxelization and supervoxel-weighted fuzzy c-means clustering method were used to identify the constrained region of each tree. Finally, accurate individual-tree point clouds were obtained. The experiment was conducted using a synthetic uncrewed aerial vehicle (UAV)–LiDAR dataset with 21 approximately 30 × 30 m plots and an actual UAV–LiDAR dataset. To evaluate the performance of the proposed method, the accuracy of the remotely sensed biophysical observations and retrieval frameworks was determined using the tree location, tree height, and crown area. The results show that the proposed method was efficient and outperformed other existing methods.},
+  abstract = {Accurate individual-tree segmentation is essential for precision forestry. In previous studies, the canopy height model-based method was convenient to process, but its performance was limited owing to the loss of 3D information, and point-based methods usually had high computational costs. Although some hybrid methods have been proposed to solve the above problems, most canopy height model-based methods are used to detect subdominant trees in one coarse crown and disregard the over-segmentation and accurate segmentation of the crown boundaries. This study introduces a combined approach, tested for the first time, for treetop detection and tree crown segmentation using UAV--LiDAR data. First, a multiscale adaptive local maximum filter was proposed to detect treetops accurately, and a Dalponte region-growing method was introduced to achieve crown delineation. Then, based on the coarse-crown result, the mean-shift voxelization and supervoxel-weighted fuzzy c-means clustering method were used to identify the constrained region of each tree. Finally, accurate individual-tree point clouds were obtained. The experiment was conducted using a synthetic uncrewed aerial vehicle (UAV)--LiDAR dataset with 21 approximately 30 \texttimes{} 30 m plots and an actual UAV--LiDAR dataset. To evaluate the performance of the proposed method, the accuracy of the remotely sensed biophysical observations and retrieval frameworks was determined using the tree location, tree height, and crown area. The results show that the proposed method was efficient and outperformed other existing methods.},
   langid = {english},
-  file = {C:\Users\keksp\Zotero\storage\D65PEWXB\Fu et al. - 2024 - Individual-Tree Segmentation from UAV–LiDAR Data Using a Region-Growing Segmentation and Supervoxel-.pdf},
-  year = 2024
+  file = {C:\Users\keksp\Zotero\storage\D65PEWXB\Fu et al. - 2024 - Individual-Tree Segmentation from UAV–LiDAR Data Using a Region-Growing Segmentation and Supervoxel-.pdf}
 }
 
 @article{goodinGeometricFidelityRequirements2024,
   title = {Geometric {{Fidelity Requirements}} for {{Meshes}} in {{Automotive Lidar Simulation}}},
   author = {Goodin, Christopher and Moore, Marc N. and Carruth, Daniel W. and Aspin, Zachary and Kaniarz, John},
-  date = {2024-07-03},
-  journaltitle = {Virtual Worlds},
+  year = 2024,
+  month = jul,
+  journal = {Virtual Worlds},
   volume = {3},
   number = {3},
   pages = {270--282},
   issn = {2813-2084},
   doi = {10.3390/virtualworlds3030014},
-  url = {https://www.mdpi.com/2813-2084/3/3/14},
   urldate = {2026-06-30},
-  abstract = {The perception of vegetation is a critical aspect of off-road autonomous navigation, and consequentially a critical aspect of the simulation of autonomous ground vehicles (AGVs). Representing vegetation with triangular meshes requires detailed geometric modeling that captures the intricacies of small branches and leaves. In this work, we propose to answer the question, “What degree of geometric fidelity is required to realistically simulate lidar in AGV simulations?” To answer this question, in this work we present an analysis that determines the required geometric fidelity of digital scenes and assets used in the simulation of AGVs. Focusing on vegetation, we use a comparison of the real and simulated perceived distribution of leaf orientation angles in lidar point clouds to determine the number of triangles required to reliably reproduce realistic results. By comparing real lidar scans of vegetation to simulated lidar scans of vegetation with a variety of geometric fidelities, we find that digital tree models (meshes) need to have a minimum triangle density of {$>$}1600 triangles per cubic meter in order to accurately reproduce the geometric properties of lidar scans of real vegetation, with a recommended triangle density of 11,000 triangles per cubic meter for best performance. Furthermore, by comparing these experiments to past work investigating the same question for cameras, we develop a general “rule-of-thumb” for vegetation mesh fidelity in AGV sensor simulation.},
+  abstract = {The perception of vegetation is a critical aspect of off-road autonomous navigation, and consequentially a critical aspect of the simulation of autonomous ground vehicles (AGVs). Representing vegetation with triangular meshes requires detailed geometric modeling that captures the intricacies of small branches and leaves. In this work, we propose to answer the question, ``What degree of geometric fidelity is required to realistically simulate lidar in AGV simulations?'' To answer this question, in this work we present an analysis that determines the required geometric fidelity of digital scenes and assets used in the simulation of AGVs. Focusing on vegetation, we use a comparison of the real and simulated perceived distribution of leaf orientation angles in lidar point clouds to determine the number of triangles required to reliably reproduce realistic results. By comparing real lidar scans of vegetation to simulated lidar scans of vegetation with a variety of geometric fidelities, we find that digital tree models (meshes) need to have a minimum triangle density of {$>$}1600 triangles per cubic meter in order to accurately reproduce the geometric properties of lidar scans of real vegetation, with a recommended triangle density of 11,000 triangles per cubic meter for best performance. Furthermore, by comparing these experiments to past work investigating the same question for cameras, we develop a general ``rule-of-thumb'' for vegetation mesh fidelity in AGV sensor simulation.},
   langid = {english},
-  file = {C:\Users\keksp\Zotero\storage\Q2IFCFTT\Goodin et al. - 2024 - Geometric Fidelity Requirements for Meshes in Automotive Lidar Simulation.pdf},
-  year = 2024
+  file = {C:\Users\keksp\Zotero\storage\Q2IFCFTT\Goodin et al. - 2024 - Geometric Fidelity Requirements for Meshes in Automotive Lidar Simulation.pdf}
 }
 
 @article{keerthinathanModellingLiDARBasedVegetation2025,
   title = {Modelling {{LiDAR-Based Vegetation Geometry}} for {{Computational Fluid Dynamics Heat Transfer Models}}},
   author = {Keerthinathan, Pirunthan and Anschau, Megan and Krishnakumar, Thaniroshan and Ariyanayagam, Anthony and Hamilton, Grant and Gonzalez, Felipe},
-  date = {2025-02-06},
-  journaltitle = {Remote Sensing},
+  year = 2025,
+  month = feb,
+  journal = {Remote Sensing},
   volume = {17},
   number = {3},
   pages = {552},
   issn = {2072-4292},
   doi = {10.3390/rs17030552},
-  url = {https://www.mdpi.com/2072-4292/17/3/552},
   urldate = {2026-06-30},
-  abstract = {Vegetation characteristics significantly influence the impact of wildfires on individual building structures, and these effects can be systematically analyzed using heat transfer modelling software. Close-range light detection and ranging (LiDAR) data obtained from uncrewed aerial systems (UASs) capture detailed vegetation morphology; however, the integration of dense vegetation and merged canopies into three-dimensional (3D) models for fire modelling software poses significant challenges. This study proposes a method for integrating the UAS–LiDAR-derived geometric features of vegetation components—such as bark, wooden core, and foliage—into heat transfer models. The data were collected from the natural woodland surrounding an elevated building in Samford, Queensland, Australia. Aboveground biomass (AGB) was estimated for 21 trees utilizing three 3D tree reconstruction tools, with validation against biomass allometric equations (BAEs) derived from field measurements. The most accurate reconstruction tool produced a tree mesh utilized for modelling vegetation geometry. A proof of concept was established with Eucalyptus siderophloia, incorporating vegetation data into heat transfer models. This non-destructive framework leverages available technologies to create reliable 3D tree reconstructions of complex vegetation in wildland–urban interfaces (WUIs). It facilitates realistic wildfire risk assessments by providing accurate heat flux estimations, which are critical for evaluating building safety during fire events, while addressing the limitations associated with direct measurements.},
+  abstract = {Vegetation characteristics significantly influence the impact of wildfires on individual building structures, and these effects can be systematically analyzed using heat transfer modelling software. Close-range light detection and ranging (LiDAR) data obtained from uncrewed aerial systems (UASs) capture detailed vegetation morphology; however, the integration of dense vegetation and merged canopies into three-dimensional (3D) models for fire modelling software poses significant challenges. This study proposes a method for integrating the UAS--LiDAR-derived geometric features of vegetation components---such as bark, wooden core, and foliage---into heat transfer models. The data were collected from the natural woodland surrounding an elevated building in Samford, Queensland, Australia. Aboveground biomass (AGB) was estimated for 21 trees utilizing three 3D tree reconstruction tools, with validation against biomass allometric equations (BAEs) derived from field measurements. The most accurate reconstruction tool produced a tree mesh utilized for modelling vegetation geometry. A proof of concept was established with Eucalyptus siderophloia, incorporating vegetation data into heat transfer models. This non-destructive framework leverages available technologies to create reliable 3D tree reconstructions of complex vegetation in wildland--urban interfaces (WUIs). It facilitates realistic wildfire risk assessments by providing accurate heat flux estimations, which are critical for evaluating building safety during fire events, while addressing the limitations associated with direct measurements.},
   langid = {english},
-  file = {C:\Users\keksp\Zotero\storage\4FZAMJB3\Keerthinathan et al. - 2025 - Modelling LiDAR-Based Vegetation Geometry for Computational Fluid Dynamics Heat Transfer Models.pdf},
-  year = 2025
+  file = {C:\Users\keksp\Zotero\storage\4FZAMJB3\Keerthinathan et al. - 2025 - Modelling LiDAR-Based Vegetation Geometry for Computational Fluid Dynamics Heat Transfer Models.pdf}
 }
 
 @article{kempfObliqueViewIndividual2021,
   title = {Oblique View Individual Tree Crown Delineation},
-  author = {Kempf, Christian and Tian, Jiaojiao and Kurz, Franz and D’Angelo, Pablo and Schneider, Thomas and Reinartz, Peter},
-  date = {2021-07},
-  journaltitle = {International Journal of Applied Earth Observation and Geoinformation},
+  author = {Kempf, Christian and Tian, Jiaojiao and Kurz, Franz and D'Angelo, Pablo and Schneider, Thomas and Reinartz, Peter},
+  year = 2021,
+  month = jul,
+  journal = {International Journal of Applied Earth Observation and Geoinformation},
   volume = {99},
   pages = {102314},
   issn = {15698432},
   doi = {10.1016/j.jag.2021.102314},
-  url = {https://linkinghub.elsevier.com/retrieve/pii/S0303243421000210},
   urldate = {2026-07-09},
   langid = {english},
-  file = {C:\Users\keksp\Zotero\storage\QYNL2HVS\Kempf et al. - 2021 - Oblique view individual tree crown delineation.pdf},
-  year = 2021
+  file = {C:\Users\keksp\Zotero\storage\QYNL2HVS\Kempf et al. - 2021 - Oblique view individual tree crown delineation.pdf}
 }
 
 @article{liIndividualTreeSegmentation2023,
   title = {Individual Tree Segmentation of Airborne and {{UAV LiDAR}} Point Clouds Based on the Watershed and Optimized Connection Center Evolution Clustering},
   author = {Li, Yi and Xie, Donghui and Wang, Yingjie and Jin, Shuangna and Zhou, Kun and Zhang, Zhixiang and Li, Weihua and Zhang, Wuming and Mu, Xihan and Yan, Guangjian},
-  date = {2023-07},
-  journaltitle = {Ecology and Evolution},
+  year = 2023,
+  month = jul,
+  journal = {Ecology and Evolution},
   volume = {13},
   number = {7},
   pages = {e10297},
   issn = {2045-7758, 2045-7758},
   doi = {10.1002/ece3.10297},
-  url = {https://onlinelibrary.wiley.com/doi/10.1002/ece3.10297},
   urldate = {2026-06-28},
   abstract = {Abstract                            Light detection and ranging (LiDAR) data can provide 3D structural information of objects and are ideal for extracting individual tree parameters, and individual tree segmentation (ITS) is a vital step for this purpose. Various ITS methods have been emerging from airborne LiDAR scanning (ALS) or unmanned aerial vehicle LiDAR scanning (ULS) data. Here, we propose a new individual tree segmentation method, which couples the classical and efficient watershed algorithm (WS) and the newly developed connection center evolution (CCE) clustering algorithm in pattern recognition. The CCE is first used in ITS and comprehensively optimized by considering tree structure and point cloud characteristics. Firstly, the amount of data is greatly reduced by mean shift voxelization. Then, the optimal clustering scale is automatically determined by the shapes in the projection of three different directions. We select five forest plots in Saihanba, China and 14 public plots in Alpine region, Europe with ULS or ALS point cloud densities from 11 to 3295\,pts/m               2               . Eleven ITS methods were used for comparison. The accuracy of tree top detection and tree height extraction is estimated by five and two metrics, respectively. The results show that the matching rate (               R               match               ) of tree tops is up to 0.92, the coefficient of determination (               R               2               ) of tree height estimation is up to .94, and the minimum root mean square error (RMSE) is 0.6\,m. Our method outperforms the other methods especially in the broadleaf forests plot on slopes, where the five evaluation metrics for tree top detection outperformed the other algorithms by at least 11\% on average. Our ITS method is both robust and efficient and has the potential to be used especially in coniferous forests to extract the structural parameters of individual trees for forest management, carbon stock estimation, and habitat mapping.},
   langid = {english},
-  file = {C:\Users\keksp\Zotero\storage\L5VVNETA\Li et al. - 2023 - Individual tree segmentation of airborne and UAV LiDAR point clouds based on the watershed and optim.pdf},
-  year = 2023
+  file = {C:\Users\keksp\Zotero\storage\L5VVNETA\Li et al. - 2023 - Individual tree segmentation of airborne and UAV LiDAR point clouds based on the watershed and optim.pdf}
 }
 
 @article{lopacApplicationLaserSystems2022,
   title = {Application of {{Laser Systems}} for {{Detection}} and {{Ranging}} in the {{Modern Road Transportation}} and {{Maritime Sector}}},
-  author = {Lopac, Nikola and Jurdana, Irena and Brnelić, Adrian and Krljan, Tomislav},
-  date = {2022-08-09},
-  journaltitle = {Sensors},
+  author = {Lopac, Nikola and Jurdana, Irena and Brneli{\'c}, Adrian and Krljan, Tomislav},
+  year = 2022,
+  month = aug,
+  journal = {Sensors},
   volume = {22},
   number = {16},
   pages = {5946},
   issn = {1424-8220},
   doi = {10.3390/s22165946},
-  url = {https://www.mdpi.com/1424-8220/22/16/5946},
   urldate = {2026-06-26},
   abstract = {The development of light detection and ranging (lidar) technology began in the 1960s, following the invention of the laser, which represents the central component of this system, integrating laser scanning with an inertial measurement unit (IMU) and Global Positioning System (GPS). Lidar technology is spreading to many different areas of application, from those in autonomous vehicles for road detection and object recognition, to those in the maritime sector, including object detection for autonomous navigation, monitoring ocean ecosystems, mapping coastal areas, and other diverse applications. This paper presents lidar system technology and reviews its application in the modern road transportation and maritime sector. Some of the better-known lidar systems for practical applications, on which current commercial models are based, are presented, and their advantages and disadvantages are described and analyzed. Moreover, current challenges and future trends of application are discussed. This paper also provides a systematic review of recent scientific research on the application of lidar system technology and the corresponding computational algorithms for data analysis, mainly focusing on deep learning algorithms, in the modern road transportation and maritime sector, based on an extensive analysis of the available scientific literature.},
   langid = {english},
-  file = {C:\Users\keksp\Zotero\storage\SIIDXQBP\Lopac et al. - 2022 - Application of Laser Systems for Detection and Ranging in the Modern Road Transportation and Maritim.pdf},
-  year = 2022
+  file = {C:\Users\keksp\Zotero\storage\SIIDXQBP\Lopac et al. - 2022 - Application of Laser Systems for Detection and Ranging in the Modern Road Transportation and Maritim.pdf}
 }
 
 @article{marcelloPerformanceIndividualTree2024b,
   title = {Performance of {{Individual Tree Segmentation Algorithms}} in {{Forest Ecosystems Using UAV LiDAR Data}}},
-  author = {Marcello, Javier and Spínola, María and Albors, Laia and Marqués, Ferran and Rodríguez-Esparragón, Dionisio and Eugenio, Francisco},
-  date = {2024-12-19},
-  journaltitle = {Drones},
+  author = {Marcello, Javier and Sp{\'i}nola, Mar{\'i}a and Albors, Laia and Marqu{\'e}s, Ferran and {Rodr{\'i}guez-Esparrag{\'o}n}, Dionisio and Eugenio, Francisco},
+  year = 2024,
+  month = dec,
+  journal = {Drones},
   volume = {8},
   number = {12},
   pages = {772},
   issn = {2504-446X},
   doi = {10.3390/drones8120772},
-  url = {https://www.mdpi.com/2504-446X/8/12/772},
   urldate = {2026-07-08},
   abstract = {Forests are crucial for biodiversity, climate regulation, and hydrological cycles, requiring sustainable management due to threats like deforestation and climate change. Traditional forest monitoring methods are labor-intensive and limited, whereas UAV LiDAR offers detailed three-dimensional data on forest structure and extensive coverage. This study primarily assesses individual tree segmentation algorithms in two forest ecosystems with different levels of complexity using high-density LiDAR data captured by the Zenmuse L1 sensor on a DJI Matrice 300RTK platform. The processing methodology for LiDAR data includes preliminary preprocessing steps to create Digital Elevation Models, Digital Surface Models, and Canopy Height Models. A comprehensive evaluation of the most effective techniques for classifying ground points in the LiDAR point cloud and deriving accurate models was performed, concluding that the Triangular Irregular Network method is a suitable choice. Subsequently, the segmentation step is applied to enable the analysis of forests at the individual tree level. Segmentation is crucial for monitoring forest health, estimating biomass, and understanding species composition and diversity. However, the selection of the most appropriate segmentation technique remains a hot research topic with a lack of consensus on the optimal approach and metrics to be employed. Therefore, after the review of the state of the art, a comparative assessment of four common segmentation algorithms (Dalponte2016, Silva2016, Watershed, and Li2012) was conducted. Results demonstrated that the Li2012 algorithm, applied to the normalized 3D point cloud, achieved the best performance with an F1-score of 91\% and an IoU of 83\%.},
   langid = {english},
-  file = {C:\Users\keksp\Zotero\storage\BCAI4VJV\Marcello et al. - 2024 - Performance of Individual Tree Segmentation Algorithms in Forest Ecosystems Using UAV LiDAR Data.pdf},
-  year = 2024
+  file = {C:\Users\keksp\Zotero\storage\BCAI4VJV\Marcello et al. - 2024 - Performance of Individual Tree Segmentation Algorithms in Forest Ecosystems Using UAV LiDAR Data.pdf}
 }
 
 @article{munzingerMappingUrbanForest2022,
   title = {Mapping the Urban Forest in Detail: {{From LiDAR}} Point Clouds to {{3D}} Tree Models},
   shorttitle = {Mapping the Urban Forest in Detail},
-  author = {Münzinger, Markus and Prechtel, Nikolas and Behnisch, Martin},
-  date = {2022-08},
-  journaltitle = {Urban Forestry \& Urban Greening},
+  author = {M{\"u}nzinger, Markus and Prechtel, Nikolas and Behnisch, Martin},
+  year = 2022,
+  month = aug,
+  journal = {Urban Forestry \& Urban Greening},
   volume = {74},
   pages = {127637},
   issn = {16188667},
   doi = {10.1016/j.ufug.2022.127637},
-  url = {https://linkinghub.elsevier.com/retrieve/pii/S1618866722001807},
   urldate = {2026-06-26},
   langid = {english},
-  file = {C:\Users\keksp\Zotero\storage\XM2DJRSW\Münzinger et al. - 2022 - Mapping the urban forest in detail From LiDAR point clouds to 3D tree models.pdf},
-  year = 2022
+  file = {C:\Users\keksp\Zotero\storage\XM2DJRSW\Münzinger et al. - 2022 - Mapping the urban forest in detail From LiDAR point clouds to 3D tree models.pdf}
 }
 
 @article{murrayARBORNewFramework2019,
   title = {{{ARBOR}}: {{A}} New Framework for Assessing the Accuracy of Individual Tree Crown Delineation from Remotely-Sensed Data},
   shorttitle = {{{ARBOR}}},
   author = {Murray, Jon and Gullick, David and Blackburn, George Alan and Whyatt, James Duncan and Edwards, Christopher},
-  date = {2019-09},
-  journaltitle = {Remote Sensing of Environment},
+  year = 2019,
+  month = sep,
+  journal = {Remote Sensing of Environment},
   volume = {231},
   pages = {111256},
   issn = {00344257},
   doi = {10.1016/j.rse.2019.111256},
-  url = {https://linkinghub.elsevier.com/retrieve/pii/S0034425719302755},
   urldate = {2026-07-08},
   langid = {english},
-  file = {C:\Users\keksp\Zotero\storage\XQWYF4TH\Murray et al. - 2019 - ARBOR A new framework for assessing the accuracy of individual tree crown delineation from remotely.pdf},
-  year = 2019
+  file = {C:\Users\keksp\Zotero\storage\XQWYF4TH\Murray et al. - 2019 - ARBOR A new framework for assessing the accuracy of individual tree crown delineation from remotely.pdf}
 }
 
 @inproceedings{schutzRealTimeContinuousLevel2019,
   title = {Real-{{Time Continuous Level}} of {{Detail Rendering}} of {{Point Clouds}}},
   booktitle = {2019 {{IEEE Conference}} on {{Virtual Reality}} and {{3D User Interfaces}} ({{VR}})},
   author = {Schutz, Markus and Krosl, Katharina and Wimmer, Michael},
-  date = {2019-03},
+  year = 2019,
+  month = mar,
   pages = {103--110},
   publisher = {IEEE},
-  location = {Osaka, Japan},
+  address = {Osaka, Japan},
   doi = {10.1109/VR.2019.8798284},
-  url = {https://ieeexplore.ieee.org/document/8798284/},
   urldate = {2026-07-09},
-  eventtitle = {2019 {{IEEE Conference}} on {{Virtual Reality}} and {{3D User Interfaces}} ({{VR}})},
+  copyright = {https://ieeexplore.ieee.org/Xplorehelp/downloads/license-information/IEEE.html},
   isbn = {978-1-7281-1377-7},
-  file = {C:\Users\keksp\Zotero\storage\D9J8BPCK\Schutz et al. - 2019 - Real-Time Continuous Level of Detail Rendering of Point Clouds.pdf},
-  year = 2019
+  file = {C:\Users\keksp\Zotero\storage\D9J8BPCK\Schutz et al. - 2019 - Real-Time Continuous Level of Detail Rendering of Point Clouds.pdf}
 }
 
 @article{schutzSimLODSimultaneousLOD2024,
   title = {{{SimLOD}}: {{Simultaneous LOD Generation}} and {{Rendering}} for {{Point Clouds}}},
   shorttitle = {{{SimLOD}}},
-  author = {Schütz, Markus and Herzberger, Lukas and Wimmer, Michael},
-  date = {2024-05-11},
-  journaltitle = {Proceedings of the ACM on Computer Graphics and Interactive Techniques},
+  author = {Sch{\"u}tz, Markus and Herzberger, Lukas and Wimmer, Michael},
+  year = 2024,
+  month = may,
+  journal = {Proceedings of the ACM on Computer Graphics and Interactive Techniques},
   volume = {7},
   number = {1},
   pages = {1--20},
   issn = {2577-6193},
   doi = {10.1145/3651287},
-  url = {https://dl.acm.org/doi/10.1145/3651287},
   urldate = {2026-07-09},
   abstract = {LOD construction is typically implemented as a preprocessing step that requires users to wait before they are able to view the results in real time. We propose an incremental LOD generation approach for point clouds that allows us to simultaneously load points from disk, update an octree-based level-of-detail representation, and render the intermediate results in real time while additional points are still being loaded from disk. LOD construction and rendering are both implemented in CUDA and share the GPU's processing power, but each incremental update is lightweight enough to leave enough time to maintain real-time frame rates.             Our approach is able to stream points from an SSD and update the octree on the GPU at rates of up to 580 million points per second (\textasciitilde 9.3GB/s) on an RTX 4090 and a PCIe 5.0 SSD. Depending on the data set, our approach spends an average of about 1 to 2 ms to incrementally insert 1 million points into the octree, allowing us to insert several million points per frame into the LOD structure and render the intermediate results within the same frame.},
   langid = {english},
-  file = {C:\Users\keksp\Zotero\storage\HAIP8GRP\Schütz et al. - 2024 - SimLOD Simultaneous LOD Generation and Rendering for Point Clouds.pdf},
-  year = 2024
+  file = {C:\Users\keksp\Zotero\storage\HAIP8GRP\Schütz et al. - 2024 - SimLOD Simultaneous LOD Generation and Rendering for Point Clouds.pdf}
 }
 
 @article{thapaForestAbovegroundBiomass2025,
   title = {Forest {{Aboveground Biomass Estimation Using Airborne LiDAR}}: {{A Systematic Review}} and {{Meta-Analysis}}},
   shorttitle = {Forest {{Aboveground Biomass Estimation Using Airborne LiDAR}}},
   author = {Thapa, Nisham and Narine, Lana L. and Wilson, Alan E.},
-  date = {2025-07},
-  journaltitle = {Journal of Forestry},
+  year = 2025,
+  month = jul,
+  journal = {Journal of Forestry},
   volume = {123},
   number = {4},
   pages = {389--412},
   issn = {0022-1201, 1938-3746},
   doi = {10.1007/s44392-025-00029-w},
-  url = {https://link.springer.com/10.1007/s44392-025-00029-w},
   urldate = {2026-06-26},
   abstract = {Abstract                            Forest aboveground biomass (AGB) estimation is crucial for understanding carbon dynamics and supporting Reducing Emissions from Deforestation and Forest Degradation (REDD +) initiatives. It has gained significant research interest, evident in the skyrocketing number of peer-reviewed journal articles over the past decade alone. The availability of free and open-access airborne light detection and ranging (LiDAR) data has further accelerated the development of advanced AGB modeling approaches. However, a comprehensive summary of milestones achieved in AGB estimation using airborne LiDAR is still lacking. Our study aims to fill this gap by summarizing AGB model errors with respect to different data sources, forest biomes, and methods used. The overall objective of the study was to conduct a systematic review and meta-analysis of peer-reviewed journal articles on AGB estimation using airborne LiDAR published between 2013 and 2023. We followed the Preferred Reporting Items for Systematic Reviews and Meta- Analysis (PRISMA) framework to select 52 articles. Results indicate that most studies on AGB using airborne LiDAR were carried out in tropical biomes and employed multiple linear regression analysis as the modeling method. Results also show Root Mean Square Error as the most preferred model evaluation metric. Additionally, we concluded that meta-analysis of studies with a controlled predictor variable and modeling method produced less heterogeneous results (I               2               \,= 91.67\% and Q\,= 399.97) as compared to the overall meta-analysis (I               2               \,= 96.38\% and Q\,= 6648.28). The findings provide new insights to researchers for advancing AGB estimation accuracy using airborne LiDAR.},
   langid = {english},
-  file = {C:\Users\keksp\Zotero\storage\EQQJDKXJ\Thapa et al. - 2025 - Forest Aboveground Biomass Estimation Using Airborne LiDAR A Systematic Review and Meta-Analysis.pdf},
-  year = 2025
+  file = {C:\Users\keksp\Zotero\storage\EQQJDKXJ\Thapa et al. - 2025 - Forest Aboveground Biomass Estimation Using Airborne LiDAR A Systematic Review and Meta-Analysis.pdf}
 }
 
 @article{wangAutomatedPhenotypicTrait2024,
   title = {Automated {{Phenotypic Trait Extraction}} for {{Rice Plant Using Terrestrial Laser Scanning Data}}},
   author = {Wang, Kexiao and Pu, Xiaojun and Li, Bo},
-  date = {2024-07-03},
-  journaltitle = {Sensors},
+  year = 2024,
+  month = jul,
+  journal = {Sensors},
   volume = {24},
   number = {13},
   pages = {4322},
   issn = {1424-8220},
   doi = {10.3390/s24134322},
-  url = {https://www.mdpi.com/1424-8220/24/13/4322},
   urldate = {2026-06-30},
   abstract = {To quickly obtain rice plant phenotypic traits, this study put forward the computational process of six rice phenotype features (e.g., crown diameter, perimeter of stem, plant height, surface area, volume, and projected leaf area) using terrestrial laser scanning (TLS) data, and proposed the extraction method for the tiller number of rice plants. Specifically, for the first time, we designed and developed an automated phenotype extraction tool for rice plants with a three-layer architecture based on the PyQt5 framework and Open3D library. The results show that the linear coefficients of determination (R2) between the measured values and the extracted values marked a better reliability among the selected four verification features. The root mean square error (RMSE) of crown diameter, perimeter of stem, and plant height is stable at the centimeter level, and that of the tiller number is as low as 1.63. The relative root mean squared error (RRMSE) of crown diameter, plant height, and tiller number stays within 10\%, and that of perimeter of stem is 18.29\%. In addition, the user-friendly automatic extraction tool can efficiently extract the phenotypic features of rice plant, and provide a convenient tool for quickly gaining phenotypic trait features of rice plant point clouds. However, the comparison and verification of phenotype feature extraction results supported by more rice plant sample data, as well as the improvement of accuracy algorithms, remain as the focus of our future research. The study can offer a reference for crop phenotype extraction using 3D point clouds.},
   langid = {english},
-  file = {C:\Users\keksp\Zotero\storage\6CAG4UUU\Wang et al. - 2024 - Automated Phenotypic Trait Extraction for Rice Plant Using Terrestrial Laser Scanning Data.pdf},
-  year = 2024
+  file = {C:\Users\keksp\Zotero\storage\6CAG4UUU\Wang et al. - 2024 - Automated Phenotypic Trait Extraction for Rice Plant Using Terrestrial Laser Scanning Data.pdf}
 }
 
 @inproceedings{wegenNonPhotorealisticRendering3D2024,
   title = {Non-{{Photorealistic Rendering}} of {{3D Point Clouds Using Segment-Specific Image-Space Effects}}:},
   shorttitle = {Non-{{Photorealistic Rendering}} of {{3D Point Clouds Using Segment-Specific Image-Space Effects}}},
   booktitle = {Proceedings of the 19th {{International Joint Conference}} on {{Computer Vision}}, {{Imaging}} and {{Computer Graphics Theory}} and {{Applications}}},
-  author = {Wegen, Ole and Burmeister, Josafat-Mattias and Reimann, Max and Richter, Rico and Döllner, Jürgen},
-  date = {2024},
+  author = {Wegen, Ole and Burmeister, Josafat-Mattias and Reimann, Max and Richter, Rico and D{\"o}llner, J{\"u}rgen},
+  year = 2024,
   pages = {189--200},
   publisher = {{SCITEPRESS - Science and Technology Publications}},
-  location = {Rome, Italy},
+  address = {Rome, Italy},
   doi = {10.5220/0012575800003660},
-  url = {https://www.scitepress.org/DigitalLibrary/Link.aspx?doi=10.5220/0012575800003660},
   urldate = {2026-07-09},
-  eventtitle = {19th {{International Conference}} on {{Computer Graphics Theory}} and {{Applications}}},
   isbn = {978-989-758-679-8},
-  file = {C:\Users\keksp\Zotero\storage\IJPVJVGU\Wegen et al. - 2024 - Non-Photorealistic Rendering of 3D Point Clouds Using Segment-Specific Image-Space Effects.pdf},
-  year = 2024
+  file = {C:\Users\keksp\Zotero\storage\IJPVJVGU\Wegen et al. - 2024 - Non-Photorealistic Rendering of 3D Point Clouds Using Segment-Specific Image-Space Effects.pdf}
 }
 
 @article{yuIndividualTreeSegmentation2024,
   title = {Individual {{Tree Segmentation Based}} on {{Seed Points Detected}} by an {{Adaptive Crown Shaped Algorithm Using UAV-LiDAR Data}}},
   author = {Yu, Jiao and Lei, Lei and Li, Zhenhong},
-  date = {2024-02-27},
-  journaltitle = {Remote Sensing},
+  year = 2024,
+  month = feb,
+  journal = {Remote Sensing},
   volume = {16},
   number = {5},
   pages = {825},
   issn = {2072-4292},
   doi = {10.3390/rs16050825},
-  url = {https://www.mdpi.com/2072-4292/16/5/825},
   urldate = {2026-07-06},
-  abstract = {Unmanned aerial vehicle–light detection and ranging (UAV-LiDAR) provides a convenient and economical means of forest data acquisition that can penetrate canopy gaps to obtain abundant ground information, offering huge potential in forest inventory. Individual tree segmentation is a prerequisite to obtain individual tree details but is highly dependent on the accuracy of seed point detection. However, most of the existing methods, such as the local maximum (LM) and CHM-based methods, are strongly dependent on the window size, and, for individual tree segmentation, they can result in over-segmentation and under-segmentation, especially in natural forests. In this paper, we propose an adaptive crown shaped algorithm for individual tree segmentation without consideration of the window size. It was implemented in four plots with different forest types and topographies (i.e., planted coniferous forest with flat terrain, coniferous forest with sloping terrain, mixed forest with flat terrain and broadleaf forest with flat terrain). First, the normalized point clouds were rotated and blocked at multiple angles to extract the surface points of the forest. Then, the crown boundaries were delineated by analyzing the crown profiles to extract the treetops as seed points. Finally, a region growing method based on seed points was applied for individual tree segmentation. Our results showed that the recall, precision and F1-score of seed point detection reached 91.6\%, 95.9\% and 0.94, respectively, and that the accuracy rates for individual tree segmentation for the four plots were 87.7\%, 80.6\%, 73.2\% and 70.5\%, respectively. Our proposed method can effectively detect seed points via the adaptive crown shaped algorithm and reduce the impacts of elongated branches by applying distance thresholds between trees, enhancing the accuracy of seed point detection and subsequently improving the precision of individual tree segmentation. In addition, the proposed algorithm demonstrated superior performance in comparison to LM and CHM-based methods for the calculation of seed points, as well as outperforming PCS in individual tree segmentation. The proposed method demonstrates effectiveness and feasibility in dense forests and natural forests, providing an important reference for future research on seed point detection and individual tree segmentation.},
+  abstract = {Unmanned aerial vehicle--light detection and ranging (UAV-LiDAR) provides a convenient and economical means of forest data acquisition that can penetrate canopy gaps to obtain abundant ground information, offering huge potential in forest inventory. Individual tree segmentation is a prerequisite to obtain individual tree details but is highly dependent on the accuracy of seed point detection. However, most of the existing methods, such as the local maximum (LM) and CHM-based methods, are strongly dependent on the window size, and, for individual tree segmentation, they can result in over-segmentation and under-segmentation, especially in natural forests. In this paper, we propose an adaptive crown shaped algorithm for individual tree segmentation without consideration of the window size. It was implemented in four plots with different forest types and topographies (i.e., planted coniferous forest with flat terrain, coniferous forest with sloping terrain, mixed forest with flat terrain and broadleaf forest with flat terrain). First, the normalized point clouds were rotated and blocked at multiple angles to extract the surface points of the forest. Then, the crown boundaries were delineated by analyzing the crown profiles to extract the treetops as seed points. Finally, a region growing method based on seed points was applied for individual tree segmentation. Our results showed that the recall, precision and F1-score of seed point detection reached 91.6\%, 95.9\% and 0.94, respectively, and that the accuracy rates for individual tree segmentation for the four plots were 87.7\%, 80.6\%, 73.2\% and 70.5\%, respectively. Our proposed method can effectively detect seed points via the adaptive crown shaped algorithm and reduce the impacts of elongated branches by applying distance thresholds between trees, enhancing the accuracy of seed point detection and subsequently improving the precision of individual tree segmentation. In addition, the proposed algorithm demonstrated superior performance in comparison to LM and CHM-based methods for the calculation of seed points, as well as outperforming PCS in individual tree segmentation. The proposed method demonstrates effectiveness and feasibility in dense forests and natural forests, providing an important reference for future research on seed point detection and individual tree segmentation.},
   langid = {english},
-  file = {C:\Users\keksp\Zotero\storage\H7TAZMWB\Yu et al. - 2024 - Individual Tree Segmentation Based on Seed Points Detected by an Adaptive Crown Shaped Algorithm Usi.pdf},
-  year = 2024
+  file = {C:\Users\keksp\Zotero\storage\H7TAZMWB\Yu et al. - 2024 - Individual Tree Segmentation Based on Seed Points Detected by an Adaptive Crown Shaped Algorithm Usi.pdf}
 }
 
 @article{zhangIndividualTreeSegmentation2024,
   title = {Individual Tree Segmentation from {{UAS Lidar}} Data Based on Hierarchical Filtering and Clustering},
   author = {Zhang, Cailian and Song, Chengwen and Zaforemska, Aleksandra and Zhang, Jiaxing and Gaulton, Rachel and Dai, Wenxia and Xiao, Wen},
-  date = {2024-12-31},
-  journaltitle = {International Journal of Digital Earth},
+  year = 2024,
+  month = dec,
+  journal = {International Journal of Digital Earth},
   volume = {17},
   number = {1},
   pages = {2356124},
   issn = {1753-8947, 1753-8955},
   doi = {10.1080/17538947.2024.2356124},
-  url = {https://www.tandfonline.com/doi/full/10.1080/17538947.2024.2356124},
   urldate = {2026-07-06},
   langid = {english},
-  file = {C:\Users\keksp\Zotero\storage\UXD2PWEV\Zhang et al. - 2024 - Individual tree segmentation from UAS Lidar data based on hierarchical filtering and clustering.pdf},
-  year = 2024
+  file = {C:\Users\keksp\Zotero\storage\UXD2PWEV\Zhang et al. - 2024 - Individual tree segmentation from UAS Lidar data based on hierarchical filtering and clustering.pdf}
 }
 
 @misc{zotero-item-43,
   title = {Geodatenportal {{Sachsen}}},
   author = {GeoSN},
-  date = {2023},
-  url = {https://www.geodaten.sachsen.de/index.html},
   year = 2023
 }
 
 @misc{zotero-item-44,
   title = {{{3D-Stadtmodell LoD2 Stadt Leipzig}}},
-  author = {Stadt Leipzig, Amt für Geoinformation und Bodenordnung},
-  date = {2024},
-  url = {https://opendata.leipzig.de/dataset/3d-stadtmodell-lod2-stadt-leipzig/resource/6d1dc26c-5972-4d0c-900b-0277d5a9db36},
+  author = {{Stadt Leipzig, Amt f{\"u}r Geoinformation und Bodenordnung}},
   year = 2024
 }
 
 @misc{zotero-item-46,
   title = {Leipziger {{Baumkataster}}},
-  author = {Stadt Leipzig, Amt für Umweltschutz},
-  date = {2026},
-  url = {https://www.leipzig.de/leben-in-leipzig/natur-und-umwelt/umwelt-und-naturschutz/baeume-und-baumschutz/baumkataster},
+  author = {{Stadt Leipzig, Amt f{\"u}r Umweltschutz}},
   year = 2026
 }
 
 @misc{zotero-item-48,
   title = {Data {{Sheet RIEGL VQ-780 II}}},
   author = {{RIEGL Laser Measurement Systems GmbH}},
-  date = {2020},
-  location = {Horn, Österreich},
-  url = {https://www.riegl.com/de-oesterreich/},
-  organization = {RIEGL Laser Measurement Systems GmbH},
-  file = {C:\Users\keksp\Zotero\storage\5SYIGSMX\LiDAR_Messystem_Riegel_Infoblatt.pdf},
-  year = 2020
+  year = 2020,
+  publisher = {RIEGL Laser Measurement Systems GmbH},
+  address = {Horn, \"Osterreich},
+  file = {C:\Users\keksp\Zotero\storage\5SYIGSMX\LiDAR_Messystem_Riegel_Infoblatt.pdf}
 }
 
-@software{zotero-item-49,
+@misc{zotero-item-49,
   title = {Python},
   author = {{Python Software Foundation}},
-  date = {2023},
-  url = {https://www.python.org},
-  version = {3.11.15},
   year = 2023
 }
 
-@software{zotero-item-50,
+@misc{zotero-item-50,
   title = {Anaconda {{Distribution}}},
   author = {{Anaconda Inc.}},
-  date = {2026},
-  url = {https://www.anaconda.com},
-  version = {26.1.1},
   year = 2026
 }
 
-@software{zotero-item-51,
+@misc{zotero-item-51,
   title = {{{GeoPandas}}},
   author = {{GeoPandas Developers}},
-  date = {2025},
-  url = {https://geopandas.org},
-  version = {1.1.3},
   year = 2025
 }
 
-@software{zotero-item-52,
+@misc{zotero-item-52,
   title = {Shapely},
   author = {{Sean Gillies, Shapely Contributors}},
-  date = {2025},
-  url = {https://shapely.readthedocs.io},
-  version = {2.1.2},
   year = 2025
 }
 
-@software{zotero-item-53,
+@misc{zotero-item-53,
   title = {Rasterio},
   author = {{Rasterio Developers}},
-  date = {2025},
-  url = {https://rasterio.readthedocs.io},
-  version = {1.4.4},
   year = 2025
 }
 
-@software{zotero-item-54,
+@misc{zotero-item-54,
   title = {{{PDAL}}},
   author = {{PDAL Contributors}},
-  date = {2025},
-  url = {https://pdal.io},
-  version = {2.10.0},
   year = 2025
 }
 
-@software{zotero-item-55,
+@misc{zotero-item-55,
   title = {Laspy},
   author = {{Laspy Developers}},
-  date = {2025},
-  url = {https://laspy.readthedocs.io},
-  version = {2.7.0},
   year = 2025
 }
 
-@software{zotero-item-56,
+@misc{zotero-item-56,
   title = {{{PyVista}}},
   author = {{PyVista Developers}},
-  date = {2025},
-  url = {https://pyvista.org},
-  version = {0.48.4},
   year = 2025
 }
 
-@software{zotero-item-57,
+@misc{zotero-item-57,
   title = {{{CloudCompare}}},
   author = {{CloudCompare Development Team}},
-  date = {2025},
-  url = {https://www.cloudcompare.org},
-  version = {2.13.2},
   year = 2025
 }
 
-@software{zotero-item-70,
+@misc{zotero-item-70,
   title = {{{SciPy}}},
   author = {{SciPy Developers}},
-  date = {2026},
-  url = {https://github.com/scipy/scipy},
-  version = {1.17.1},
   year = 2026
 }
 
-@software{zotero-item-72,
+@misc{zotero-item-72,
   title = {Scikit-Image},
   author = {{scikit-image Developers}},
-  date = {2025},
-  version = {0.26.0},
   year = 2025
 }
 
@@ -437,12 +378,9 @@
   title = {Analysis of {{Full Waveform Lidar Data}} for {{Tree Species Classification}}},
   booktitle = {International {{Archives}} of the {{Photogrammetry}}, {{Remote Sensing}} and {{Spatial Information Sciences}} ({{IAPRS}})},
   author = {Reitberger, Josef and Krzystek, Peter and Stilla, Uwe},
-  date = {2006},
+  year = 2006,
   volume = {36},
   pages = {228--233},
-  location = {Bonn, Germany},
-  url = {https://www.isprs.org/proceedings/xxxvi/part3/singlepapers/O_18.pdf},
-  eventtitle = {Symposium of {{ISPRS Commission III}}: {{Photogrammetric Computer Vision}} ({{PCV06}})},
-  file = {C:\Users\keksp\Zotero\storage\HXX5FCIK\Reitberger et al. - 2006 - Analysis of Full Waveform Lidar Data for Tree Species Classification.pdf},
-  year = 2006
+  address = {Bonn, Germany},
+  file = {C:\Users\keksp\Zotero\storage\HXX5FCIK\Reitberger et al. - 2006 - Analysis of Full Waveform Lidar Data for Tree Species Classification.pdf}
 }
