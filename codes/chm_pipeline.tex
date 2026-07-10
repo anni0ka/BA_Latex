@@ -1,0 +1,15 @@
+\begin{lstlisting}[label={lst:pdal_chm}, caption={[CHM Erzeugung]Zweifache CHM-Erzeugung}, breaklines=true, breakatwhitespace=true]
+pipeline_raw_chm = [
+    {"type": "readers.las", "filename": tile},
+    {"type": "filters.range", "limits": "Z[0:]"},
+    {"type": "writers.gdal", "filename": output_path_seed_detection,
+    "resolution": resolution, "output_type": "max", "window_size": 3}
+]
+
+pipeline_sharp_chm = [
+    {"type": "readers.las", "filename": tile},
+    {"type": "filters.range", "limits": "Z[0:]"},
+    {"type": "writers.gdal", "filename": output_path_cluster,
+    "resolution": resolution, "output_type": "max", "window_size": 1}
+]
+\end{lstlisting}

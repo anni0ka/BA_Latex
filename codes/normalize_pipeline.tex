@@ -1,0 +1,9 @@
+\begin{lstlisting}[label={lst:pdal_normalize}, caption={[Normalisierungs-Pipeline]PDAL-Pipeline der Punktnormalisierung}, breaklines=true, breakatwhitespace=true]
+pipeline_dict = [
+    {"type": "readers.las", "filename": tile},
+    {"type": "filters.hag_delaunay"},
+    {"type": "filters.ferry","dimensions": "HeightAboveGround=>Z"},
+    {"type": "filters.assign", "value": "Z=0 WHERE Z < 0"},
+    {"type": "writers.las", "filename": output_path, "forward" : "all", "compression" : "true", "scale_z": "0.01"}
+]
+\end{lstlisting}
