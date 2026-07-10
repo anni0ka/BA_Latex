@@ -7,13 +7,17 @@ Um diese Fehler zu minimieren, wird das CHM zunächst mittels eines Gauß-Filter
 Da die Gauß-Glättung die realen Baumspitzen geometrisch leicht abflacht, wird für jeden identifizierten Maximum-Kandidaten sowohl die geglättete Höhe ($h_{smooth}$) als auch die Originalhöhe ($h_{raw}$) aus dem ursprünglichen CHM extrahiert. Da biologisch davon ausgegangen wird, dass höhere Bäume breitere Kronen ausbilden, erfordert eine präzise Detektion ein variables statt ein starres Suchfenster. Hierfür wird basierend auf $h_{smooth}$ über eine allometrische Potenzfunktion der theoretisch zu erwartende Kronenradius berechnet. Die empirischen Koeffizienten a und b werden aus dem städtischen Baumkataster kalibriert und durch einen Skalierungsfaktor ($s_{shrink}$) angepasst:
 \begin{equation}
     \text{radius} = (a \cdot h_{smooth}^b) \cdot s_{shrink}
+    \label{eq:allometric_radius}
 \end{equation}
-Um biologisch unrealistische Werte bei extremen Baumdimensionen zu vermeiden, wird der berechnete Radius durch feste Schwel.
+Um biologisch unrealistische Werte bei extremen Baumdimensionen zu vermeiden, wird der berechnete Radius durch feste Schwellwerte begrenzt. 
 
 Im nächsten Schritt werden alle potenziellen Maxima absteigend nach ihrer geglätteten Höhe sortiert, um dominate Bäume im weiteren Prozess zu priorisieren \cite{fuIndividualTreeSegmentationUAV2024}. Zur Eliminierung von Fehlsegmentierungen wird ein iteratives Non-Maximum Suppression (\ac{NMS}) angewendet. Hierbei wird ein Kandidat nur dann als finaler Spitzenpunkt akzeptiert, wenn sein euklidischer Abstand zu allen bereits bestätigten, höheren Bäumen einen dynamischen Schwellenwert überschreitet. Dieser minimale Abstand berechnet sich aus dem Kronenradius des größeren, bereits bestätigten Baumes multipliziert mit einem Überlappungsfaktor ($f_{NMS}$)
 \begin{equation}
     \text{distanz}_{min} = \text{radius}_{existing} \cdot f_{NMS}
+    \label{eq:nms_distance}
 \end{equation}
-Unterschreitet der Abstand diesen Wert, wird der kleinere Kandidat als Ast oder Nebenkrone verworfen. \cite{yuIndividualTreeSegmentation2024}
+Unterschreitet der Abstand diesen Wert, wird der kleinere Kandidat als Ast oder Nebenkrone verworfen. \cite{yuIndividualTreeSegmentation2024} Die softwaretechnische Zusammenführung dieser adaptiven Radiusermittlung und der anschließenden distanzbasierten Filterung mittels des NMS-Verfahrens ist in Code \ref{lst:adaptiv_radius} dargestellt.
 
-Die verbleibenden, validierten Maxima werden unter Verwendung von \textit{GeoPandas} als strukturierte Vektordaten aufbereitet und unter Beibehaltung des Koordinatebezugssystems in GPKG-Datei gespeichert.
+\input{codes/top_detection_adaptive_radius.tex}
+
+Wie in der Implementierung zu sehen, werden die theoretischen Modelle der Formeln \ref{eq:allometric_radius} und \ref{eq:nms_distance} direkt miteinander verzahnt. Der theoretische Kronenradius (\textit{crown\_rad}) wird für jeden identifizierten Maximum-Kandidaten berechnet und zusammen mit den räumlichen Pixel-Koordinaten (\textit{row, col}) in ein Dictionary-Objekt abgelegt. Nach der absteigenden Sortierung der Liste \textit{candidates} durchläuft jeder Punkt die euklidische Distanzprüfung. Ein Baumkandidat wird verworfen, sobald sein mit der Rasterauflösung (\textit{res}) multiplizierter Abstand zu einem bereits akzeptierten Baum dessen indiviuellen Radius und die Konstante \textit{nms\_overlap\_factor} unterschreitet. Die verbleibenden, validierten Maxima werden unter Verwendung von \textit{GeoPandas} als strukturierte Vektordaten aufbereitet und unter Beibehaltung des Koordinatebezugssystems in GPKG-Datei gespeichert.

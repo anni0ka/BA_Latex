@@ -1,0 +1,17 @@
+\begin{lstlisting}[label={lst:adaptiv_radius}, caption={[Adaptiver Suchradius zur Baumspitzendetektion]Dynamische Berechnung des adaptiven Suchradius}, breaklines=true, breakatwhitespace=true]
+crown_rad = (a * (h_smooth ** b)) * shrink_factor
+crown_rad = np.clip(crown_rad, radius_min, radius_max)
+peaks.append({"row": row, "col": col, "h_smooth": h_smooth, "h_raw": h_raw, "radius": crown_rad})
+peaks = sorted(peaks, key=lambda x: x["h_smooth"], reverse=True)
+accepted = []
+
+for cand in peaks:
+    keep = True
+    for existing in accepted:
+        dist = np.sqrt((cand["row"]-existing["row"])**2 + (cand["col"]-existing["col"])**2) * res
+        if dist < (existing["radius"] * nms_overlap_factor):
+            keep = False
+            break
+    if keep:
+        accepted.append(cand)
+\end{lstlisting}

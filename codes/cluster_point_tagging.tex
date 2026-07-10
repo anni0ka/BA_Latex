@@ -1,0 +1,11 @@
+\begin{lstlisting}[label={lst:point-tagging}, caption={[3D-Point-Tagging zur Punktwolkensegmentierung]Übertragung der Raster-Segmentierungs-ID in den 3D-Punkteraum}, breaklines=true, breakatwhitespace=true]
+las = laspy.read(current_laz)
+cols, rows = ~affine * (las.x, las.y)
+cols = np.clip(cols.astype(int), 0, chm.shape[1] - 1)
+rows = np.clip(rows.astype(int), 0, chm.shape[0] - 1)
+if "Tree_ID" in [dim.name for dim in las.point_format.dimensions]:
+    las.point_format.remove_dimension("Tree_ID")
+las.add_extra_dim(laspy.ExtraBytesParams(name="Tree_ID", type=np.int32))
+las.Tree_ID = segmented_chm[rows, cols]
+las.write(output_laz)
+\end{lstlisting}
