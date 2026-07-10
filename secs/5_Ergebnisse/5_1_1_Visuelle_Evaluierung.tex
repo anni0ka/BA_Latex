@@ -1,0 +1,10 @@
+\subsubsection{Visuelle Evaluierung}
+
+Die qualitative Überprüfung der Segmentierungsergebnisse basiert auf einer visuellen Kontrolle im 3D-Raum, die methodische and die Qualitätssicherung der vorherigen Datenbereinigung un Vegetationsfilterung anknüpft. In dieser vorbereitenden Phase wurde die bereinigte Punktwolke stichprobenartig mit dem DOP abgeglichen, um die Plausibilität der Filterung zu verifizieren geometrische Ausreißer frühzeitig auszuschließen.
+
+Für die darauffolgende Evaluierung der Einzelbaumsegmentierung wird dieses visuelle Verfahren intensiviert. Hierfür werden die segmentierten Punktwolken in die Software \textit{CloudCompare} importiert und anhand ihrer ID eingefärbt. Der direkten Abgleich mit dem DOP ermöglicht die Überprüfung der geometrischen Plausibilität, während das zusätzliche Einlesen der Koordinaten aus dem städtischen Baumkataster als Referenzpunkte dient, um die Übereinstimmung der detektierten Baumpositionen mit dem realen Bestand unmittelbar zu verifizieren.
+
+Der Fokus dieser Evaluierung liegt auf der Identifikation von Über- und Untersegmentierung. Ersteres tritt auf, wenn die Kronen eines einzelnen Baums infolge lokaler Unregelmäßigkeiten in der Punktdichte oder multiplen lokalen Maxima innerhalb der Kronenstruktur fälschlicherweise in mehrere Segmente aufgespalten wird. Demgegenüber beschreibt die Untersegmentierung den Fall, dass eng stehende, ineinandergreifende Baumkronen nicht korrekt voneinander trennt werden. Die Analyse in \textit{CloudCompare} dient somit der Lokalisierung dieser systematischen Abweichung, um die Robustheit des entwickelt Clustering-Ansatzes sowie die gewählten Parameter zu bewerten und zu optimieren.
+
+
+Bild von Unter-/Übersegmentierung und Bild von perfektem Bestand.
