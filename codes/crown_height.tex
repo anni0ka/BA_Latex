@@ -1,0 +1,22 @@
+\begin{lstlisting}[label={lst:crown_base_height}, caption={[Kronenansatzhöhe]Histogrammbasierte Bestimmung der Kronenansatzhöhe aus der 3D-Punktwolke}, breaklines=true, breakatwhitespace=true]
+def detect_crown_base_height (z_values, slice_thickness=0.3, threshold_pct=0.10):
+    if len(z_values) < 10:
+        return np.min(z_values) if len(z_values) > 0 else 0.0
+    z_min_raw = np.min(z_values)
+    z_max = np.max(z_values)
+
+    bins = np.arange(z_min_raw, z_max + slice_thickness, slice_thickness)
+    counts, bind_edges = np.histogram(z_values, bins=bins)
+
+    if len(counts) == 0:
+        return z_min_raw
+    
+    max_count = np.max(counts)
+    if max_count == 0:
+        return z_min_raw
+    
+    for i, count in enumerate(counts):
+        if count >= max_count * threshold_pct:
+            return bind_edges[i]
+    return z_min_raw
+\end{lstlisting}
