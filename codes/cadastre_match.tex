@@ -1,0 +1,22 @@
+\begin{lstlisting}[label={lst:dist_3d}, caption={[3D-Distanzberechnung]Globale 3D-Zuordnung mit adaptivem Suchradius über die Ungarische Methode}, breaklines=true, breakatwhitespace=true]
+INF_COST = 1e9
+cost_matrix = np.full((num_det, num_ref), INF_COST)
+for r_idx in range(num_ref):
+    row = gdf_cad.iloc[r_idx]
+    search_radius = 3.0
+    if 'kr_durchm' in row and pd.notna(row['kr_durchm']) and row ['kr_durchm'] > 0:
+        search_radius = (row['kr_durchm'] / 2.0) + 1.0
+    elif pd.notna(row['baumhoehe']):
+        search_radius = min(2.0 + (row['baumhoehe'] * 0.12), 8.0)
+    
+    dx = det_coords[:, 0] - cad_coords[r_idx, 0]
+    dy = det_coords[:, 1] - cad_coords[r_idx, 1]
+    dz = det_coords[:, 2] - cad_coords[r_idx, 2]
+
+    dist_2d = np.sqrt(dx**2 + dy**2)
+    dist_3d_weighted = np.sqrt(dx**2 + dy**2 + (w_z * dz)**2)
+
+    valid_mask = dist_2d <= search_radius
+    cost_matrix[valid_mask, r_idx] = dist_3d_weighted[valid_mask]
+det_ind, ref_ind = linear_sum_assignment(cost_matrix)
+\end{lstlisting}
