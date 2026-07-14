@@ -1,34 +1,15 @@
 \begin{lstlisting}[label={lst:visualize_lod}, caption={[LoD-Visualisierung]Dynamische LoD-Steuerung der Punktwolke}, breaklines=true, breakatwhitespace=true]
-def on_camera_changed(self, obj, event):
-    #[...]
-    camera = self.plotter.camera
-    dist = camera.distance
-    #[...]
-    if not self.point_actor:
-        return
-
-    if dist < 250:
-        new_tier = 0; target_size = 12; target_spheres = True; use_low_poly = False
-    elif dist < 450:
-        new_tier = 1; target_size = 10; target_spheres = True; use_low_poly = False
-    elif dist < 700:
-        new_tier = 2; target_size = 8; target_spheres = True; use_low_poly = False
-    elif dist < 1200:
-        new_tier = 3; target_size = 5; target_spheres = False; use_low_poly = True
-    else:
-        new_tier = 4; target_size = 3; target_spheres = False; use_low_poly = True
-
-    if self.current_lod_tier != new_tier:
-        self._block_lod = True
-        try:
-            self.current_lod_tier = new_tier
-            dataset_to_use = self.cloud_low if use_low_poly else self.cloud
-            #[...]        
-            self.point_actor.mapper.dataset = dataset_to_use
-            #[...]
-            self.point_actor.GetProperty().SetRenderPointsAsSpheres (target_spheres)
-            self.point_actor.GetProperty().SetPointSize(target_size)
-            self.plotter.render()
-        finally:
-            self._block_lod = False
+camera = self.plotter.camera
+dist = camera.distance
+#[...]
+if dist < 250:
+    new_tier = 0; target_size = 12; target_spheres = True; use_low_poly = False
+elif dist < 450:
+    new_tier = 1; target_size = 10; target_spheres = True; use_low_poly = False
+elif dist < 700:
+    new_tier = 2; target_size = 8; target_spheres = True; use_low_poly = False
+elif dist < 1200:
+    new_tier = 3; target_size = 5; target_spheres = False; use_low_poly = True
+else:
+    new_tier = 4; target_size = 3; target_spheres = False; use_low_poly = True
 \end{lstlisting}

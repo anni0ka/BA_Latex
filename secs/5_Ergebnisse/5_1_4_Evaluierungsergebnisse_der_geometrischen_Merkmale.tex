@@ -1,0 +1,32 @@
+\subsubsection{Evaluierungsergebnisse der geometrischen Merkmale}
+
+Nach der Evaluierung der reinen Lokalisierungsgenauigkeit schließt sich die Untersuchung der extrahierten geometrischen Parameter an. Die aus den 2D-Kronenpolygonen abgeleiteten Werte für die Baumhöhe und den Kronendurchmesser werden hierzu direkt den quantitativen Einträgen im städtischen Baumkataster gegenübergestellt. Die Ergebnisse sind in Tabelle \ref{tab:evaluierung_geom} dargestellt.
+
+\begin{table}[htbp]
+\centering
+\caption{Ergebnisse der geometrischen Evaluierung in den Testgebieten Gohliser Straße und Mariannenpark}
+\label{tab:evaluierung_geom}
+\begin{tabular}{l c c c c}
+\toprule
+\textbf{} & \multicolumn{2}{c}{\textbf{Baumhöhe [m]}} & \multicolumn{2}{c}{\textbf{Kronendurchmesser [m]}} \\
+\cmidrule(r){2-3} \cmidrule(l){4-5}
+& Gohliser Str. & Mariannenpark & Gohliser Str. & Mariannenpark \\
+\midrule
+\textbf{Stichprobe (n)} & 44 & 306 & 44 & 306 \\
+\addlinespace
+\textbf{Korrelation (Pearson r)} & 0,82 & 0,72 & 0,71 & 0,29 \\
+\addlinespace
+\textbf{RMSE [m]} & 2,23 & 3,06 & 2,93 & 4,15 \\
+\addlinespace
+\textbf{Bias [m]} & -0,8 & -3,5 & -1,91 & -1,66 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Die statistische Asuwertung der Straßenbäume belegt eine starke lineare Korrelation der berechneten Baumhöhen mit den Katasterdaten bei moderaten Abweichung mit einem \textit{RMSE} von {2,23 m} und einer geringen systematischen Unterschätzung (\textit{(Bias = -0,80 m)}). Auch die Kronendurchmesser weisen im lichten Straßenraum mit \textit{r = 0,71} einen soliden Zusammenahng auf, wenngleich der negative \textit{Bias} von \textit{-1,91 m} eine engere geomtrische Erfassung durch den Algorithmus anzeigt.
+
+Im Mariannenpark bleibt die Korrelation der Baumhöhen mit \textit{r = 0,72} auf einem akzeptablen Niveau, während die Kronendurchmesser mit \textit{r = 0,29} un einem hohen \textit{RMSE} von {4,15 m} eine deutliche methodische Schwäche offenbaren. Die Kronenausdehnung wird auch in diesem dichten Bestand systematisch unterschätzt mit einem \textit{Bias} von \textit{-1,66 m}.
+
+Eine primäre Ursache für die geometrischen Abweichungen liegt in den datenimmanenten und zeitlichen Differenzen zwischen den Datensätzen. Zwischen der LiDAR-Erfassung und dem Datenstand des Kataster besteht ein dreijähriger Zeitverzug, in dem natürliches Wachstum sowie städtische Baumpflegemaßnahmen die Kronengeometrie verändert haben. Zudem beruhen die Höhen- und Kronenmaße im amtlichen Kataster auf visuellen Schätzungen im Rahmen regulärer Baumkontrollen, wohingegen der LiDAR-Workflow die pyhsische Dimension sensorisch direkt erfasst. Neben diesen Datendifferenzen führt die Bestandsdichte zu einer methodischen Fehlerfortpflanzung von der Positions- auf die Attributebene. Im dichten kronendach des \textit{Mariannenparks} treten vermehrt algorithmische Fehlzuordnungen auf. Verknüpft die Zuordnung einen detektierten Baum fälschlicherweise mit einer benachbarten Katasterreferenz einer anderen Größenklasse, verzerrt dieser unpassende Vergleich die \textit{Korrelation} und den \textit{RMSE} drastisch.
+
+Insgesamt verdeutlichen die statistischen Kennzahlen die spezifischen Einsatzgrenzen des entwickelten Workflows. Während die starken Korrelation der Straßenbäume die hohe Eignung des Verfahrens für die automatisierte Inventarisierung isolierter Bäume belegen, zeigen die schwachen Werte des Parkbereichs die methodischen Grenzen der Segmentierung auf.
