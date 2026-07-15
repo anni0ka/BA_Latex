@@ -1,6 +1,12 @@
 \subsubsection{Visualisierung von Baumstrukturen}
 
-Nach der Auswertung und Verarbeitung der LiDAR-Punktwolke soll eine adäquate Repräsentation der erfassten Baumstrukturen erfolgen. Hierfür existieren verschiedene Methoden, die sich im Wesentlichen in die \textit{direkter Visualisierung} von Punktwolken, die \textit{voxelbasierte} Diskretisierung und die Modellierung mittels \textit{Polygonnetzen (Meshes)} unterteilen lassen. Da diese Verfahren unterschiedliche geometrische Eigenschaften abbilden, können sie in der Praxis auch komplementär eingesetzt.
+Nach der Auswertung und Verarbeitung der LiDAR-Punktwolke soll eine adäquate Repräsentation der erfassten Baumstrukturen erfolgen. Die hierfür existierenden Methoden lassen sich im Wesentlichen in die drei in Abbildung \ref{fig:vis} dargestellten Kategorien unterteilen. Dazu gehören die \textit{direkter Visualisierung} von Punktwolken, die \textit{voxelbasierte} Diskretisierung und die Modellierung mittels \textit{Polygonnetzen (Meshes)}. Da diese Verfahren unterschiedliche geometrische Eigenschaften abbilden, können sie in der Praxis auch komplementär eingesetzt.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=1\columnwidth]{imgs/LiDAR-Vis.png}
+    \caption[Visualisierung von LiDAR-Daten]{Methoden zur Visualisierung von LiDAR-Punktwolken. Links: direkte Punktwolke, Mitte: Voxel, Rechts: Meshes(generiert mit Google Gemini, generiert am 15.07.2026)}\label{fig:vis}
+\end{figure}
 
 Die \textit{direkte Darstellung} der LiDAR-Punktwolke nutzt die nativen 3D-Koordinaten der Messpunkte, wodurch die geometrischen Eigenschaften des Zielobjekts ohne Informationsverlust erhalten bleiben. Da keine topologischen Transformationen erforderliche sind, lassen sich die Daten unmittelbar übertragen und visualisieren \cite{wangAutomatedPhenotypicTrait2024}. Die Methode stößt jedoch bei stark verrauschten oder spärlich besetzten Datensätzen an informationstechnische Grenzen. Zudem ist die Verwaltung großflächiger Punktwolken rechenintensiv, was die Effizienz bei zunehmender Umgebungsgröße mindert \cite{chengRealTimeLiDARInertial2024}. Bei komplexen Strukturen können zudem Abschattungseffekte zu Verdeckungen und unvollständigen Datenreihen führen. Trotz dieser Limitierungen eignet sich die direkte Punktwolkendarstellung für die Erfassung feiner biologischer Merkmale und geometrischer Details, wie sie beispielsweise in der landwirtschaftlichen Phänotypisierung gefordert sind. Da die Technologie die vertikale Struktur präzise abbildet, lassen sich morphologische Parameter wie der Kronendurchmesser oder die Pflanzenhöhe direkt aus den diskreten Koordinaten ableiten \cite{wangAutomatedPhenotypicTrait2024}. Dieser Ansatz wird auch im weiteren Verlauf der Arbeit verfolgt.
 

@@ -4,8 +4,8 @@ Bei der Segmentierung von Bäumen auf Basis von LiDAR-Daten wird grundlegend zwi
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.80\columnwidth]{imgs/Raster-vs-Pointcloud.png}
-    \caption[Raster- und Punktwolken Darstellung]{Vergleich von Raster- und Punktwolkendarstellung für Punktanalyse. rechts: rasterbasiertes Verfahren; links: punktwolkenbasiertes Verfahren (generiert mit Google Gemini, generiert am 15.07.2026)}\label{fig:raster-vs-pointcloud}
+    \includegraphics[width=0.65\columnwidth]{imgs/Raster-vs-Pointcloud.png}
+    \caption[Raster- und Punktwolken Darstellung]{Methoden zur Punktwolkenerfassung. Links: rasterbasiertes Verfahren, Rechts: Punktwolkenbasiertes Verfahren(generiert mit Google Gemini, generiert am 15.07.2026)}\label{fig:raster-vs-pointcloud}
 \end{figure}
 
 Beim \textit{rasterbasierten Segmentierungsverfahren} wird die 3D-Punktwolke zunächst auf ein planares Raster projiziert, um ein Kronenhöhenmodell (Canopy Height Model, \ac{CHM}) oder ein \textit{digitales Oberflächenmodell (\ac{DOM})} zu erzeugen. Auf dieses 2D-Raster können Bildverarbeitungsalgorithmen angewandt werden. Ein typischer Ablauf beginnt mit der Identifizierung von Baumspitzen über Local Maximum Filter. Diese detektierten Spitzen dienen als Startpunkte für anschließendes \textit{Regio Growing}, bei dem benachbarte Pixel nach bestimmten Regeln hinzufügt werden. Eine weitere gängige Methode ist der \textit{Watershed-} bzw. \textit{Marker-controlled Watershed-Algorithmus}, welcher das Fließen von Wasser auf einem invertierten Rastermodell simuliert, um Baumgrenzen zu isolieren. Darauf wird im Folgenden noch genauer eingegangen. Ergänzend Ansätze umfassen \textit{Valley Following}, welcher gezielt nach lokalen Minima sucht, um Lücken und Vertiefungen zwischen einzelnen Baumkronen zu detektieren sowie \textit{Graph-Cut}, der entlang der schwächsten Kante die Kronengrenzen schneidet \cite{fuIndividualTreeSegmentationUAV2024}.
