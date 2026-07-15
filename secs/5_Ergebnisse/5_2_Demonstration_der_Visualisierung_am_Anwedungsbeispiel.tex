@@ -1,18 +1,15 @@
 \subsection{Demonstration der Visualisierung am Anwedungsbeispiel}
 
 Die Anwendung des Prototyps wird nachfolgend demonstriert, wobei die visuelle Übersichtlichkeit, die farbliche Informationskodierung und die interaktive Handhabung im Vordergrund stehen. Im GUI des Systems, das in Abbildung \ref{fig:gui} dargestellt ist, werden die 3D-Punktwolken des gewählten Abschnitts über ein DOP gelegt, um realen Umgebungsverhältnissen zu demonstrieren und die Orientierung zu erleichtern.
-
-
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.65\columnwidth]{imgs/vis/GUI.png}
+    \includegraphics[width=1\columnwidth]{imgs/vis/GUI.png}
     \caption[Visualisierung eines Prototyps]{Visualisierung eines beispielhaften Abschnitts zur Demonstration des GUI}\label{fig:gui}
 \end{figure}
 
 \begin{figure}[htbp]
     \centering
-    \newcommand{\bildhoehe}{4.0cm}
-    
+    \newcommand{\bildhoehe}{4.0cm}   
         \begin{subfigure}[b]{0.49\textwidth}
         \centering
         \includegraphics[height=\bildhoehe, width=\textwidth, keepaspectratio]{imgs/vis/Straßen-nach-ID.png}
@@ -24,7 +21,6 @@ Die Anwendung des Prototyps wird nachfolgend demonstriert, wobei die visuelle Ü
         \includegraphics[height=\bildhoehe, width=\textwidth, keepaspectratio]{imgs/vis/Park-nach-ID.png}
         \caption{Park nach Segment-ID}\label{fig:park-id}
     \end{subfigure}
-
     % Zeile 1
     \begin{subfigure}[b]{0.49\textwidth}
         \centering
@@ -37,7 +33,6 @@ Die Anwendung des Prototyps wird nachfolgend demonstriert, wobei die visuelle Ü
         \includegraphics[height=\bildhoehe, width=\textwidth, keepaspectratio]{imgs/vis/Park-nach-abs-hoehe.png}
         \caption{Park nach absoluter Höhe}\label{fig:park-abs-height}
     \end{subfigure}
-
     \vspace{0.3cm}
     % Zeile 2
     \begin{subfigure}[b]{0.49\textwidth}
@@ -51,7 +46,6 @@ Die Anwendung des Prototyps wird nachfolgend demonstriert, wobei die visuelle Ü
         \includegraphics[height=\bildhoehe, width=\textwidth, keepaspectratio]{imgs/vis/Park-nach-Kronenhoehe.png}
         \caption{Park nach Kronenhöhe}\label{fig:park-crown-height}
     \end{subfigure}
-
     \vspace{0.3cm}
     % Zeile 3
     \begin{subfigure}[b]{0.49\textwidth}
@@ -85,8 +79,6 @@ Die Anwendung des Prototyps wird nachfolgend demonstriert, wobei die visuelle Ü
 
 Die Funktionen verschiedener Einfärbungsmodi werden and den bereits untersuchten Testgebieten der \textit{Gohliser Straße} und dem\textit{Marinannenpark} präsentiert. In der Standarddarstellung nach Segment-ID zeigt sich eine lineare Struktur der Baumreihen im Straßenraum (Abbildung \ref{fig:street-id}), während im dichten Kronendach des Parks eine präzise visuelle Trennung der eng zusammenstehenden Einzelbäume gelingt (Abbildung \ref{fig:park-id}). Bei Einfärbung nach der absolute Höhe werden die strukturellen Unterschiede zwischen den beiden Gebieten deutlich. Die Straßenbäume weisen gemäß Abbildung \ref{fig:street-abs-height} mit einer maximalen Höhe von \textit{24,2 m} ein homogenes Höhenniveau auf, wohingegen der Mariannenpark laut Abbildung \ref{fig:park-abs-height} eine ausgeprägte vertikale Staffelung zeigt und in den dichten Kronenbereichen Spitzenhöhen bis zu \textit{29,3 m} erreicht. Ein analoges Bild liefert die reine Kronenhöhe, die im Straßenraum bei kompakteren Kronen maximal \textit{19,4 m} beträgt (Abbildung \ref{fig:street-crown-height}), im vielschichtigen Parkbestand jedoch Werte von bis zu \textit{25,2 m} erreicht (Abbildung \ref{fig:park-crown-height}).  
 
-Diese geometrische Analyse wird durch die physiologischen und administrativen Visualisierungsmodi ergänzt. Da die LiDAR-Daten aus einer winterlichen Befliegung stammen, bewegen sich die NDVI-Werte der laubabwerfenden Straßenbäume in einem niedrigen, aber homogenen Bereich von \textit{0,03} (Abbildung \ref{fig:street-ndvi}). Im Mariannenpark entstehen höhere Varianzen. Hier sind die Werte tendenziell höher (warum?) und der großteil liegt im Bereich von 0,1 bis 0,2 (Abbildung \ref{fig:park-ndvi}).
-
 Diese geometrische Analyse wird durch die physiologischen und administrativen Visualisierungsmodi ergänzt. Da die Datengrundlage auf einer winterlichen Befliegung basiert, bewegen sich die NDVI-Werte der laubabwerfenden Straßenbäume in einem sehr niedrigen, jedoch homogenen Bereich von bis zu \textit{0,03} (Abbildung \ref{fig:street-ndvi}). Im \textit{Mariannenpark} hingegen zeigt sich eine wesentlich höhere Varianz mit tendenziell höheren Werten, die sich größtenteils zwischen \textit{0,1} und \textit{0,2} bewegen (Abbildung \ref{fig:park-ndvi}). Diese höhere Vitalitätssignatur resultiert maßgeblich aus der dortigen Vegetationsvielfalt. Zudem lässt sich die Übereinstimmung mit dem Baumkataster binär visualisieren, wodurch registrierte Segmente direkt im Viewport ersichtlich werden. Während in der \textit{Gohliser Straße} fast alle Segmente erfolgreich mit dem städtischen Baumkataster verknüpft und grün eingefärbt sind, decken einige rote Einfärbungen im \textit{Mariannenpark} größere Datenlücken auf, wo Teile des Baumbestands im Kataster fehlen oder nicht zugeordnet werden können (Abbildung \ref{fig:park-cadastre-match}).
 
-Sobald ein Baumobjekt selektiert wird, stellt das System die zugehörigen Informationen in der rechten Seitenleiste dar. Dies zeigt sich beispielhaft in Abbildung \ref{fig:gui}, die eine Höhe von 22,02 m aufweist, sowie beim Spitzahorn mit der ID 49 im Mariannenpark mit einer erfassten Höhe von 22,31 m. Dieses Zusammenspiel aus visueller 3D-Exploration und präziser Sachabfrage qualifiziert den entwickelten Prototyp als praxistaugliches Werkzeug für forstliche und stadtplanerische Analysen im städtischen Raum.
+Sobald ein Baumobjekt selektiert wird, stellt das System die zugehörigen Informationen in der rechten Seitenleiste dar. Dies zeigt sich beispielhaft in Abbildung \ref{fig:gui}, die rechts Informationen der ID 2 aufweist. Dieses Zusammenspiel aus visueller 3D-Exploration und präziser Sachabfrage qualifiziert den entwickelten Prototyp als praxistaugliches Werkzeug für forstliche und stadtplanerische Analysen im urbanen Raum.
