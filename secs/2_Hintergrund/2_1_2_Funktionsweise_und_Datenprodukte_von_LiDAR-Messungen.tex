@@ -1,6 +1,12 @@
 \subsubsection{Funktionsweise und Datenprodukte von LiDAR-Messungen}
 
-Die Objekterfassung mittels LiDAR-Strahlen basiert auf dem Aussenden modulierter Laserstrahlen, die von der Oberfläche reflektiert werden. Das System misst die Laufzeit (\textit{Time of Flight, \ac{ToF}}), die das Signal für den Weg zum Objekt und zurück zum Empfänger benötigt. Ein optisches System fokussiert das reflektierte Licht auf einen Photodetektor, der die Photonen in elektrische Signale umwandelt. Parallel dazu steuert ein Strahllenkungssystem die Laserimpulse in verschiedenen Winkeln, um das Sichtfeld (\textit{Field of View, \ac{FoV}}) abzutasten \cite{lopacApplicationLaserSystems2022}.
+Die Objekterfassung mittels LiDAR-Strahlen basiert auf dem Aussenden modulierter Laserstrahlen, die von der Oberfläche reflektiert werden wie in Abbildung \ref{fig:lidarsystem} dargestellt. Das System misst die Laufzeit (\textit{Time of Flight, \ac{ToF}}), die das Signal für den Weg zum Objekt und zurück zum Empfänger benötigt. Ein optisches System fokussiert das reflektierte Licht auf einen Photodetektor, der die Photonen in elektrische Signale umwandelt. Parallel dazu steuert ein Strahllenkungssystem die Laserimpulse in verschiedenen Winkeln, um das Sichtfeld (\textit{Field of View, \ac{FoV}}) abzutasten \cite{lopacApplicationLaserSystems2022}.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.80\columnwidth]{imgs/LiDAR-System.png}
+    \caption[Schematischer Aufbau eines LiDAR-Sensorsystems]{Schematischer Aufbau eines LiDAR-Sensorsystems zur Erzeugung von 3D-Punktwolken (nach \cite{lopacApplicationLaserSystems2022})}\label{fig:lidarsystem}
+\end{figure}
 
 Um exakte Geokoordinaten abzuleiten, integriert das Gesamtsystem neben dem Laserscanner zwei weitere Komponenten. Eine inertiale Messeinheit (\ac{IMU}) zur Bestimmung von Eigenbewegung, Neigung und Orientierung des Sensors sowie ein globales Positionsbestimmungssystem (\ac{GPS}/\ac{GNSS}) zur Lagebestimmung \cite{lopacApplicationLaserSystems2022}. Aus der Kombination dieser Daten werden für jeden Messpunkt die exakten X-Y-Z-Koordinaten im Raum berechnet, die in ihrer Gesamtheit eine 3D-Punktwolke bilden. 
 
