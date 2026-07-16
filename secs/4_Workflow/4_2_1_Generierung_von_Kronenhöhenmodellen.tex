@@ -6,9 +6,4 @@ Die Überführung der 3D-Punktwolke in dieses 2D-Rasterformat erfolgt wie auch d
 
 \input{codes/chm_pipeline.tex}
 
-In Code \ref{lst:pdal_chm} wird für die Baumspitzdetektion ein erweitertes Filterfenster \textit{"window\_size":3} gewählt, das eine leichte Glättung bewirkt und kleinskalige Datenlücken innerhalb des Kronendachs schließt. Dies verhindert, dass der Detektionsalgorithmus durch abstehende Äste oder lokales Rauschen fälschlicherweise nicht existente Bäume identifiziert. Für die darauffolgende Abgrenzung der Baumkronen wird eine zweite CHM-Varainte mit einer minimalen Fenstergröße von einem Pixel generiert. Dieses Modell liefert eine maximal scharfe Abbildung der Kronenränder, sodass feine Strukturen und exakte geometrische Grenzen zwischen benachbarten Bäumen erhalten bleiben \cite{munzingerMappingUrbanForest2022}.
-
-
-
-
-Bild mit beiden Polygonen (weich und scharf)!!
+In Code \ref{lst:pdal_chm} wird für die Baumspitzdetektion ein erweitertes Filterfenster (\textit{window\_size=3}) gewählt, das eine leichte Glättung bewirkt und kleinskalige Datenlücken innerhalb des Kronendachs schließt. Dies verhindert, dass der Detektionsalgorithmus durch abstehende Äste oder lokales Rauschen fälschlicherweise nicht existente Bäume identifiziert. Für die darauffolgende Abgrenzung der Baumkronen wird eine zweite CHM-Varainte mit einer minimalen Fenstergröße von einem Pixel generiert. Dieses Modell liefert eine maximal scharfe Abbildung der Kronenränder, sodass feine Strukturen und exakte geometrische Grenzen zwischen benachbarten Bäumen erhalten bleiben \cite{munzingerMappingUrbanForest2022}.

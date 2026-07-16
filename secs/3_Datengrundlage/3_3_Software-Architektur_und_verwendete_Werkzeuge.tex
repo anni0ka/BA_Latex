@@ -1,12 +1,9 @@
 \subsection{Software-Architektur und verwendete Werkzeuge}
 
 Die automatisierte Datenverarbeitung und Visualisierung erfolgt in der Programmiersprache \textit{Python (Version 3.11.15)} \cite{zotero-item-49}. Zur Bereitstellung einer reproduzierbaren und systemunabhängigen Entwicklungsumgebung kommt die Distributionsplattform \textit{Anaconda (Version 26.1.1)} \cite{zotero-item-50} zum Einsatz. Somit können Versionskonflikte zwischen den teils komplexen C-basierten Abhängigkeiten der verwendeten Geodaten-Bibliotheken vermieden werden. Die verwendeten Bibliotheken sowie ihr Einsatzgebiet sind in Tabelle \ref{tab:python-lib} dargestellt.
-
-
-
 \begin{table}[htbp]
 \centering
-\caption{Übersicht der eingesetzten Softwarekomponenten und Python-Bibliotheken}
+\caption{Übersicht der eingesetzten Python-Bibliotheken}
 \label{tab:python-lib}
 \small
 \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} l p{2.2cm} p{1.2cm} p{4.2cm} p{4.0cm} @{}}
@@ -18,11 +15,11 @@ Die automatisierte Datenverarbeitung und Visualisierung erfolgt in der Programmi
 \addlinespace
 \textbf{Punktwolken} & PDAL \newline Laspy & 2.10.0 \newline 2.7.0 & Verarbeitung, Filterung und Einlesen der originalen LiDAR-Daten & \cite{zotero-item-54} \newline \cite{zotero-item-55} \\
 \addlinespace
-\textbf{Segmentierung} & SciPy \newline scikit-image & 1.14.0 \newline 0.26.0 & Mathematische Algorithmen und Raster-Segmentierung & \cite{zotero-item-70} \newline \cite{zotero-item-72} \\
+\textbf{Segmentierung} & SciPy \newline scikit-image & 1.17.1 \newline 0.26.0 & Mathematische Algorithmen und Raster-Segmentierung & \cite{zotero-item-70} \newline \cite{zotero-item-72} \\
 \addlinespace
 \textbf{Visualisierung} & PyVista & 0.48.4 & Interaktives 3D-Rendering und visuelle Qualitätskontrolle & \cite{zotero-item-56}  \\
 \bottomrule
 \end{tabular*}
 \end{table}
 
-Abseits der Codeumgebung war eine visuelle Qualitätskontrolle der räumlichen Daten unerlässlich. Hierfür wurde die Open-Source-Software \textit{CloudCompare (Version 2.13.2)} \cite{zotero-item-57} eingesetzt, die ein performantes Rendering der ALS-Datensätze ermöglicht.
+Abseits der Codeumgebung war eine visuelle Qualitätskontrolle der räumlichen Daten unerlässlich. Hierfür wird die Open-Source-Software \textit{CloudCompare (Version 2.13.2)} \cite{zotero-item-57} eingesetzt, die ein performantes Rendering der ALS-Datensätze ermöglicht.
