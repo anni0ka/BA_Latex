@@ -2,7 +2,25 @@
 
 Die anschließende Filterung dient der selektiven Extraktion der Baumpunkte aus der normalisierten Gesamtpunktwolke. Zunächst werden alle Punkte mit einer HAG unter \textit{0,8 m} ausgeschlossen, um bodennahe Vegetation wie Sträucher zu eliminieren. Zudem wurden alle Klassifikationen außer Nicht-Bodenpunkten herausgefiltert.
 
-Zur Differenzierung der verbleibenden Vegetation von anthropogenen Strukturen wurden geometrische, radiometrische und spektrale Kriterien evaluiert. Mittels einer \textit{K-Nearest-Neighbor-Suche} auf Basis der nächsten \textit{50} Nachbarpunkten wurden zunächst lokale 3D-Kovarianzmerkmale berechnet. Während ebene Strukturen wie Fassaden und Dachflächen eine hohe Planarität aufweisen, zeichnen sich zerklüftete Baumkronen durch niedrige Planaritätswerte und eine höhere Linearität aus. Ergänzend wurde die \textit{Number of Returns} einbezogen. Da das teiltransparente Blätterdach meist zwei oder mehr Reflexionen erzeugt, lassen sich biologische Strukturen zuverlässig von soliden Oberflächen mit nur einem Echo unterscheiden \cite{munzingerMappingUrbanForest2022}. Für die Filterung wurde zudem eine Intensitätsschwelle von \textit{140} definiert, um stark reflektierende künstliche Objekte auszuschließen \cite{zhangIndividualTreeSegmentation2024}. Als finales spektrales Kriterium dient der NDVI, der über eine Fusion der LiDAR-Daten mit vierkanäligen DOPs berechnet wird. Da Vegetation im Bereich des nahen Infrarot (\ac{NIR}) stark reflektieren und rotes Licht zur Photosynthese absorbieren, weisen vitale Bäume üblicherweise NDVI-Werte zwischen \textit{0,2 und 0,8} auf. Um phänologische Variationen wie Laubabfall zu berücksichtigen, wurde die Untergrenze des Filters auf null gesetzt \cite{munzingerMappingUrbanForest2022}. Code \ref{lst:pdal_filter} zeigt wie diese Filterkriterien in der \textit{PDAL-Pipeline} implementiert wurden.
+Zur Differenzierung der verbleibenden Vegetation von anthropogenen Strukturen wurden geometrische, radiometrische und spektrale Kriterien evaluiert. Mittels einer \textit{K-Nearest-Neighbor-Suche} auf Basis der nächsten \textit{50} Nachbarpunkten wurden zunächst lokale 3D-Kovarianzmerkmale berechnet. Während ebene Strukturen wie Fassaden und Dachflächen eine hohe Planarität aufweisen, zeichnen sich zerklüftete Baumkronen durch niedrige Planaritätswerte und eine höhere Linearität aus. Ergänzend wurde die \textit{Number of Returns} einbezogen. Da das teiltransparente Blätterdach meist zwei oder mehr Reflexionen erzeugt, lassen sich biologische Strukturen zuverlässig von soliden Oberflächen mit nur einem Echo unterscheiden \cite{munzingerMappingUrbanForest2022}. Für die Filterung wurde zudem eine Intensitätsschwelle von \textit{140} definiert, um stark reflektierende künstliche Objekte auszuschließen \cite{zhangIndividualTreeSegmentation2024}. Abbildung \ref{fig:point-character} veranschaulicht jeweils, dass bei Einfärbung nach Number of Returns (Abbildung \ref{fig:number-of-returns}) bzw. nach Intensität (Abbildung \ref{fig:intensity}) bereits bei der normalisierten Punktwolke Baumstrukturen zu erkennen sind.
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}[c]{0.48\columnwidth}
+        \centering
+        \includegraphics[width=\textwidth]{imgs/NumberOfReturns.png}
+        \caption{Einfärbung nach Number of Returns}
+        \label{fig:number-of-returns}
+    \end{subfigure}
+    \hspace{0,2 cm}
+    \begin{subfigure}[c]{0.48\columnwidth}
+        \centering
+        \includegraphics[width=\textwidth]{imgs/Intensitaet.png}
+        \caption{Einfärbung nach Intensität}
+        \label{fig:intensity}
+    \end{subfigure}
+    \caption[Eigenschaften der Punktwolke]{Einfärbung der normalisierten Punktwolke in CloudCompare nach Number of Returns und nach Intensität}\label{fig:point-character}
+\end{figure}
+Als finales spektrales Kriterium dient der NDVI, der über eine Fusion der LiDAR-Daten mit vierkanäligen DOPs berechnet wird. Da Vegetation im Bereich des nahen Infrarot (\ac{NIR}) stark reflektieren und rotes Licht zur Photosynthese absorbieren, weisen vitale Bäume üblicherweise NDVI-Werte zwischen \textit{0,2 und 0,8} auf. Um phänologische Variationen wie Laubabfall zu berücksichtigen, wurde die Untergrenze des Filters auf null gesetzt \cite{munzingerMappingUrbanForest2022}. Code \ref{lst:pdal_filter} zeigt wie diese Filterkriterien in der \textit{PDAL-Pipeline} implementiert wurden.
 
 \input{codes/filter.tex}
 
