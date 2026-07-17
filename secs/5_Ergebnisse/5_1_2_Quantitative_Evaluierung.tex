@@ -1,8 +1,25 @@
 \subsubsection{Quantitative Evaluierung verschiedener Bestandsdichten}
 
-Um die Segmentierungsgüte über die qualitative Sichtprüfung hinaus objektive zu bewerten, schließt sich eine quantitative Evaluierung an, bei der zwei strukturell gegensätzliche urbane Baumbestände im Stadtgebiet Leipzig als Textgebiete untersucht werden. Der erste Abschnitt umfasst einen lichten Straßenzug entlang der \textit{Gohliser Straße}, während das zweite Untersuchungsgebiet durch einen dichten, mehrschichtigen Parkabschnitt im \textit{Mariannenpark} charakterisiert ist. Der algorithmische Abgleich führt die Position der detektierten Baumspitzen mit den Referenzdaten des städtischen Baumkatasters zusammen. Dies Zuordnung entspricht dem im Methodikteil (Kapitel 4.3.2) beschrieben Vorgang und erfolgt über eine gewichtete euklidische 3D-Distanz sowie globale Optimierung mittels der \textit{Ungarische Methode}, um eine eindeutige Zuordnung naher Objekte zu gewährleisten.
+Um die Segmentierungsgüte über die qualitative Sichtprüfung hinaus objektive zu bewerten, schließt sich eine quantitative Evaluierung an, bei der zwei strukturell gegensätzliche urbane Baumbestände im Stadtgebiet Leipzig als Textgebiete untersucht werden. Der erste Abschnitt umfasst einen lichten Straßenzug entlang der \textit{Gohliser Straße} (Abbildung \ref{fig:gohli}), während das zweite Untersuchungsgebiet durch einen dichten, mehrschichtigen Parkabschnitt im \textit{Mariannenpark} (Abbildung \ref{fig:park}) charakterisiert ist. 
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}[c]{0.45\columnwidth}
+        \centering
+        \includegraphics[width=\textwidth]{imgs/GohliserStraße.png}
+        \caption{Gohliser Straße}
+        \label{fig:gohli}
+    \end{subfigure}
+    \hspace{0,5 cm}
+    \begin{subfigure}[c]{0.45\columnwidth}
+        \centering
+        \includegraphics[width=\textwidth]{imgs/Mariannenpark.png}
+        \caption{Mariannenpark}
+        \label{fig:park}
+    \end{subfigure}
+    \caption[Untersuchungsgebiete]{Untersuchungsgebiete mit ihren segmentierten Bäumen}\label{fig:result-tagging}
+\end{figure}
 
-Bei der Interpretation der Werte ist vorab kritisch zu berücksichtigen, dass ein dreijähriger zeitlicher Versatz zwischen den LiDAR-Daten und dem Baumkataster besteht und manche Höhen im Kataster auf Schätzungen beruhen, was scheinbare Abweichungen erklären kann. Da das Baumkataster ausschließlich Bäume im öffentlichen Raum verzeichnet, während die LiDAR-Erfassung auch Privat- und Gewerbeflächen abdeckt, wird vorab eine räumliche Filterung durchgeführt. Hierbei wird ein Puffer von \textit{8 m} um die Referenzbäume gelegt, wodurch eine gemeinsame valide Maske entsteht, innerhalb derer alle detektierte Baumspitzen für die statistische Auswertung berücksichtigt werden. Die verbleibenden Punktpaare werden in standardisierte Kategorien eingeteilt, aus denen quantitative Kennzahlen zur Bewertung der Positionsgenauigkeit und der geometrischen Abweichung abgeleitet werden \cite{munzingerMappingUrbanForest2022}.
+Der algorithmische Abgleich führt die Position der detektierten Baumspitzen mit den Referenzdaten des städtischen Baumkatasters zusammen. Dies Zuordnung entspricht dem im Methodikteil (Kapitel 4.3.2) beschrieben Vorgang und erfolgt über eine gewichtete euklidische 3D-Distanz sowie globale Optimierung mittels der \textit{Ungarische Methode}, um eine eindeutige Zuordnung naher Objekte zu gewährleisten. Bei der Interpretation der Werte ist vorab kritisch zu berücksichtigen, dass ein dreijähriger zeitlicher Versatz zwischen den LiDAR-Daten und dem Baumkataster besteht und manche Höhen im Kataster auf Schätzungen beruhen, was scheinbare Abweichungen erklären kann. Da das Baumkataster ausschließlich Bäume im öffentlichen Raum verzeichnet, während die LiDAR-Erfassung auch Privat- und Gewerbeflächen abdeckt, wird vorab eine räumliche Filterung durchgeführt. Hierbei wird ein Puffer von \textit{8 m} um die Referenzbäume gelegt, wodurch eine gemeinsame valide Maske entsteht, innerhalb derer alle detektierte Baumspitzen für die statistische Auswertung berücksichtigt werden. Die verbleibenden Punktpaare werden in standardisierte Kategorien eingeteilt, aus denen quantitative Kennzahlen zur Bewertung der Positionsgenauigkeit und der geometrischen Abweichung abgeleitet werden \cite{munzingerMappingUrbanForest2022}.
 
 Die positionelle Auswertungen basieren auf folgenden Kategorien und Verhältniswerten \cite{zhangIndividualTreeSegmentation2024}.
 \begin{itemize}
