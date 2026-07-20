@@ -1,31 +1,26 @@
 \subsubsection{Visuelle Evaluierung}
 
-Die qualitative Überprüfung der Segmentierungsergebnisse basiert auf einer visuellen Kontrolle im 3D-Raum, die methodische and die Qualitätssicherung der vorherigen Datenbereinigung und Vegetationsfilterung anknüpft. In dieser vorbereitenden Phase wird die bereinigte Punktwolke stichprobenartig mit dem DOP abgeglichen, um die Plausibilität der Filterung zu verifizieren und geometrische Ausreißer frühzeitig auszuschließen. Für die darauffolgende Evaluierung der Einzelbaumsegmentierung wird dieses visuelle Verfahren intensiviert. Hierfür werden die segmentierten Punktwolken in die Software \textit{CloudCompare} importiert und anhand ihrer ID eingefärbt. Der direkten Abgleich mit dem DOP ermöglicht die Überprüfung der geometrischen Plausibilität, während das zusätzliche Einlesen der Koordinaten aus dem städtischen Baumkataster als Referenz dient, um die Übereinstimmung der detektierten Baumpositionen mit dem realen Bestand unmittelbar zu verifizieren \cite{fuIndividualTreeSegmentationUAV2024}.
--> Vis der Katasterumrandungen und punktwolken und vergleich mit den detektierten baumspitzen
+Die qualitative Überprüfung der Segmentierungsergebnisse basiert auf einer visuellen Kontrolle im 3D-Raum, die methodische and die Qualitätssicherung der vorherigen Datenbereinigung und Vegetationsfilterung anknüpft. In dieser vorbereitenden Phase wird die bereinigte Punktwolke stichprobenartig mit dem DOP abgeglichen, um die Plausibilität der Filterung zu verifizieren und geometrische Ausreißer frühzeitig auszuschließen. 
 
-Der Fokus dieser Evaluierung liegt auf der Identifikation von Über- und Untersegmentierung. Ersteres tritt auf, wenn die Kronen eines einzelnen Baums infolge lokaler Unregelmäßigkeiten in der Punktdichte oder multipler lokaler Maxima innerhalb der Kronenstruktur fälschlicherweise in mehrere Segmente aufgespalten wird. Demgegenüber beschreibt die Untersegmentierung den Fall, dass eng stehende, ineinandergreifende Baumkronen nicht korrekt voneinander getrennt werden. Die vergleichende Abbildung \ref{fig:seg} veranschaulicht diese geometrische Abweichung und stellt fehlerfreie Bestände den Fällen von Unter- und Übersegmentierung gegenüber. Die Analyse in \textit{CloudCompare} dient somit der Lokalisierung dieser systematischen Abweichung, um die Robustheit des entwickelt Clustering-Ansatzes sowie die gewählten Parameter zu bewerten und zu optimieren \cite{fuIndividualTreeSegmentationUAV2024}.
+Für die darauffolgende Evaluierung der Einzelbaumsegmentierung wird dieses visuelle Verfahren intensiviert. Hierfür werden die aufbereiteten Daten in die Software CloudCompare importiert 
+und in zwei wesentlichen Analyseschritten in Abbildung \ref{fig:vis-eval} gegenübergestellt. Der direkte Abgleich der detektierten Baumspitzen als weiße Rechtecke mit den im Kataster hinterlegten Kronenradien auf dem DOP (Abbildung \ref{fig:eval-ref}) ermöglicht es, die Übereinstimmung der detektierten Positionen mit dem realen Bestand unmittelbar zu verifizieren. In einem zweiten Schritt wird die eigentliche Einzelbaumsegmentierung evaluiert (Abbildung \ref{fig:eval-seg}). Dazu werden die aus dem Clustering hervorgegangenen Punktwolkensegmenten anhand ihrer jeweiligen 
+ID eingefärbt und mit dem DOP als Referenz verglichen. \cite{fuIndividualTreeSegmentationUAV2024}.
 \begin{figure}[htbp]
     \centering
-    \begin{subfigure}[b]{0.25\columnwidth}
+    \begin{subfigure}[b]{0.48\columnwidth}
         \centering
-        \includegraphics[width=\textwidth]{imgs/uebersegmentierung.png}
-        \caption{Übersegmentierung}
-        \label{fig:ueberseg}
+        \includegraphics[width=\textwidth]{imgs/Vis-Eval-Ref.png}
+        \caption{Referenzdaten und detektierte Baumspitzen}
+        \label{fig:eval-ref}
     \end{subfigure}
     \hfill 
-    \begin{subfigure}[b]{0.25\columnwidth}
+    \begin{subfigure}[b]{0.48\columnwidth}
         \centering
-        \includegraphics[width=\textwidth]{imgs/untersegmentierung.png}
-        \caption{Untersegmentierung}
-        \label{fig:unteresg}
+        \includegraphics[width=\textwidth]{imgs/Vis-Eval-Seg.png}
+        \caption{Segmentierungsergebnisse}
+        \label{fig:eval-seg}
     \end{subfigure}
-    \hfill
-    \begin{subfigure}[b]{0.25\columnwidth}
-        \centering
-        \includegraphics[width=\textwidth]{imgs/richtige-segmentierung.png}
-        \caption{Korrekte Segmentierung}
-        \label{fig:richtig-seg}
-    \end{subfigure}
-    
-    \caption[Gegenüberstellung von Über- und Untersegmentierung]{Gegenüberstellung von Über- und Untersegmentierung und korrekter Segmentierung}\label{fig:seg}
+    \caption[Gegenüberstellung von Über- und Untersegmentierung]{Gegenüberstellung von Über- und Untersegmentierung und korrekter Segmentierung}\label{fig:vis-eval}
 \end{figure}
+Der Fokus dieser zweiten Evaluierung liegt auf der Identifikation von Über- und Untersegmentierung. Ersteres tritt auf, wenn die Kronen eines einzelnen Baums infolge lokaler Unregelmäßigkeiten in der Punktdichte oder multipler lokaler Maxima innerhalb der Kronenstruktur fälschlicherweise in mehrere Segmente aufgespalten wird. Demgegenüber beschreibt die Untersegmentierung den Fall, dass eng stehende, ineinandergreifende Baumkronen nicht korrekt voneinander getrennt werden. Die vergleichende Abbildung \ref{fig:seg} veranschaulicht diese geometrische Abweichung und stellt fehlerfreie Bestände den Fällen von Unter- und Übersegmentierung gegenüber. Die Analyse in CloudCompare dient somit der Lokalisierung dieser systematischen Abweichung, um die Robustheit des entwickelt Clustering-Ansatzes sowie die gewählten Parameter zu bewerten und zu optimieren \cite{fuIndividualTreeSegmentationUAV2024}.
+

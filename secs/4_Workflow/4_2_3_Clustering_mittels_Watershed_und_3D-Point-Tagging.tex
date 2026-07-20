@@ -2,7 +2,7 @@
 
 Der abschließende Schritt der Einzelbaumsegmentierung transformiert die unstrukturierten Gesamtpunktwolke in eine objektorientierten Datenstruktur. Hierbei werden raster- und punktbasierte Analysemethoden kombiniert, um sowohl 2D-Kronenpolygone zu extrahieren als auch jeden LiDAR-Punkt eindeutig einem Baumindividuum per ID zuzuweisen.
 
-Die Segmentierung basiert auf einem ungeglättetem CHM, da dieses im Gegensatz zu den für die Baumspitzendetektion verwendeten geglätteten Daten alle geometrischen Details und Höhentäler präzise abbildet \cite{munzingerMappingUrbanForest2022}. Da der zur Segmentierung eingesetzte \textit{Watershed-Algorithmus} aus der \textit{scikit-image} Bibliothek auf der Identifikation lokaler Minima beruht, wird das CHM für die Verarbeitung invertiert. In diesem virtuellen Relief entsprechen die detektierten Baumspitzen den tiefsten Punkten. Diese fungieren als Marker und definieren den Ausgangspunkt des Clustering, wodurch jeder Baumspitze exakt ein Segment zugeordnet wird und eine Übersegmentierung vermieden wird \cite{marcelloPerformanceIndividualTree2024b}.  Um eine unkontrollierte Ausbreitung der Segmente auf bodennahe Objekte zu verhindern, werden mittels einer binären Vegetationsmaske alle Pixel unterhalb einer Mindesthöhe von \textit{1,0 m} ausgeschlossen. Ausgehend von den Markern expandieren die Segmente solange, bis sie an die Grenze der Vegetationsmaske oder an ein benachbartes Segment stoßen. Die resultierenden Berührungslinien definieren die Kronengrenzen. Abbildung \ref{fig:watershed}  stellt das Prinzip des invertierten Rasters (in Dunkelblau) und dem markerbasierten Wachstums der jeweiligen Bäume dar.
+Die Segmentierung basiert auf einem ungeglättetem CHM, da dieses im Gegensatz zu den für die Baumspitzendetektion verwendeten geglätteten Daten alle geometrischen Details und Höhentäler präzise abbildet \cite{munzingerMappingUrbanForest2022}. Da der zur Segmentierung eingesetzte \textit{Watershed-Algorithmus} aus der scikit-image-Bibliothek auf der Identifikation lokaler Minima beruht, wird das CHM für die Verarbeitung invertiert. In diesem virtuellen Relief entsprechen die detektierten Baumspitzen den tiefsten Punkten. Diese fungieren als Marker und definieren den Ausgangspunkt des Clustering, wodurch jeder Baumspitze exakt ein Segment zugeordnet wird und eine Übersegmentierung vermieden wird \cite{marcelloPerformanceIndividualTree2024b}.  Um eine unkontrollierte Ausbreitung der Segmente auf bodennahe Objekte zu verhindern, werden mittels einer binären Vegetationsmaske alle Pixel unterhalb einer Mindesthöhe von 1,0 m ausgeschlossen. Ausgehend von den Markern expandieren die Segmente solange, bis sie an die Grenze der Vegetationsmaske oder an ein benachbartes Segment stoßen. Die resultierenden Berührungslinien definieren die Kronengrenzen. Abbildung \ref{fig:watershed}  stellt das Prinzip des invertierten Rasters (in Dunkelblau) und dem markerbasierten Wachstums der jeweiligen Bäume dar.
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.65\columnwidth]{imgs/Watershed.png}
@@ -10,21 +10,21 @@ Die Segmentierung basiert auf einem ungeglättetem CHM, da dieses im Gegensatz z
 \end{figure}
 
 Das Ergebnis ist ein segmentiertes Raster, in dem jede zusammenhängende Pixelfläche den Wert der jeweiligen Baum-ID trägt. Diese Rasterflächen werden anschließend in 2D-Vektorpolygone konvertiert und zusammen mit den zugehörigen IDs als neuer Layer in das bestehende GPKG der Baumspitzen integriert \cite{marcelloPerformanceIndividualTree2024b}. Da die rasterbasierte Segmentierung primär die Oberfläche des Kronendaches abbildet, erfolgt
-im letzten Schritt die Überführung in den 3D-Raum, um vertikale Informationen der inneren Kronenarchitektur zu erhalten. Code \ref{lst:point-tagging} repräsentiert die Implementierung mit Hilfe der \textit{laspy} Bibliothek.
+im letzten Schritt die Überführung in den 3D-Raum, um vertikale Informationen der inneren Kronenarchitektur zu erhalten. Code \ref{lst:point-tagging} repräsentiert die Implementierung mit Hilfe der laspy Bibliothek.
 
 \input{codes/cluster_point_tagging.tex}
 
 Hier werden die X- und Y-Koordinaten jedes LiDAR-Punktes mittels einer affinen Matrix auf das segmentierte Raster projiziert, wodurch jeder Punkt die ID (\textit{Tree\_ID}) des korrespondierenden Pixels übernimmt \cite{munzingerMappingUrbanForest2022}. Dadurch wird die Punktwolke um ein ID-Attribut erweitert, das eine eindeutige Korrelation zwischen den 3D-Punktdaten und den in der GPKG-Datei hinterlegten 2D-Polygonen ermöglicht \cite{liIndividualTreeSegmentation2023}. Abbildung \ref{fig:result-tagging} veranschaulicht das finale Segmentierungsergebnis anhand der generierten 2D-Kronenpolygone (Abbildung \ref{fig:poly}) sowie der korrespondierenden, nach Baum-IDs eingefärbten 3D-Punktwolke (Abbildung \ref{fig:color-id}).
 \begin{figure}[htbp]
     \centering
-    \begin{subfigure}[c]{0.35\columnwidth}
+    \begin{subfigure}[t]{0.4\columnwidth}
         \centering
         \includegraphics[width=\textwidth]{imgs/Polygone.png}
         \caption{2D-Polygone der Baumkronen}
         \label{fig:poly}
     \end{subfigure}
     \hspace{1,5 cm}
-    \begin{subfigure}[c]{0.35\columnwidth}
+    \begin{subfigure}[t]{0.4\columnwidth}
         \centering
         \includegraphics[width=\textwidth]{imgs/LiDAR-Seg-ID.png}
         \caption{Einfärbung der 3D-Punktwolke nach ID in CloudCompare}

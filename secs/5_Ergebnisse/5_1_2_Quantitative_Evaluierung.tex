@@ -1,6 +1,6 @@
 \subsubsection{Quantitative Evaluierung verschiedener Bestandsdichten}
 
-Um die Segmentierungsgüte über die qualitative Sichtprüfung hinaus objektive zu bewerten, schließt sich eine quantitative Evaluierung an, bei der zwei strukturell gegensätzliche urbane Baumbestände im Stadtgebiet Leipzig (Abbildung \ref{fig:testgebiet}) als Testgebiete untersucht werden. Der erste Abschnitt umfasst einen lichten Straßenzug entlang der \textit{Gohliser Straße} (Abbildung \ref{fig:gohli}), während das zweite Untersuchungsgebiet durch einen dichten, mehrschichtigen Parkabschnitt im \textit{Mariannenpark} (Abbildung \ref{fig:park}) charakterisiert ist. 
+Um die Segmentierungsgüte über die qualitative Sichtprüfung hinaus objektive zu bewerten, schließt sich eine quantitative Evaluierung an, bei der zwei strukturell gegensätzliche urbane Baumbestände im Stadtgebiet Leipzig (Abbildung \ref{fig:testgebiet}) als Testgebiete untersucht werden. Der erste Abschnitt umfasst einen lichten Straßenzug entlang der Gohliser Straße (Abbildung \ref{fig:gohli}), während das zweite Untersuchungsgebiet durch einen dichten, mehrschichtigen Parkabschnitt im Mariannenpark (Abbildung \ref{fig:park}) charakterisiert ist. 
 \begin{figure}[htbp]
     \centering
     \begin{subfigure}[c]{0.45\columnwidth}
@@ -19,21 +19,21 @@ Um die Segmentierungsgüte über die qualitative Sichtprüfung hinaus objektive 
     \caption[Untersuchungsgebiete]{Untersuchungsgebiete mit segmentierten Baumbeständen}\label{fig:testgebiet}
 \end{figure}
 
-Der algorithmische Abgleich führt die Position der detektierten Baumspitzen mit den Referenzdaten des städtischen Baumkatasters zusammen. Dies Zuordnung entspricht dem im Methodikteil (Kapitel 4.3.2) beschrieben Vorgang und erfolgt über eine gewichtete euklidische 3D-Distanz sowie globale Optimierung mittels der \textit{Ungarische Methode}, um eine eindeutige Zuordnung naher Objekte zu gewährleisten. Bei der Interpretation der Werte ist vorab kritisch zu berücksichtigen, dass ein dreijähriger zeitlicher Versatz zwischen den LiDAR-Daten und dem Baumkataster besteht und manche Höhen im Kataster auf Schätzungen beruhen, was scheinbare Abweichungen erklären kann. Da das Baumkataster ausschließlich Bäume im öffentlichen Raum verzeichnet, während die LiDAR-Erfassung auch Privat- und Gewerbeflächen abdeckt, wird vorab eine räumliche Filterung durchgeführt. Hierbei wird ein Puffer von \textit{8 m} um die Referenzbäume gelegt, wodurch eine gemeinsame valide Maske entsteht, innerhalb derer alle detektierte Baumspitzen für die statistische Auswertung berücksichtigt werden. Die verbleibenden Punktpaare werden in standardisierte Kategorien eingeteilt, aus denen quantitative Kennzahlen zur Bewertung der Positionsgenauigkeit und der geometrischen Abweichung abgeleitet werden \cite{munzingerMappingUrbanForest2022}.
+Der algorithmische Abgleich führt die Position der detektierten Baumspitzen mit den Referenzdaten des städtischen Baumkatasters zusammen. Dies Zuordnung entspricht dem im Methodikteil (Kapitel 4.3.2) beschrieben Vorgang und erfolgt über eine gewichtete euklidische 3D-Distanz sowie globale Optimierung mittels der \textit{Ungarische Methode}, um eine eindeutige Zuordnung naher Objekte zu gewährleisten. Bei der Interpretation der Werte ist vorab kritisch zu berücksichtigen, dass ein dreijähriger zeitlicher Versatz zwischen den LiDAR-Daten und dem Baumkataster besteht und manche Höhen im Kataster auf Schätzungen beruhen, was scheinbare Abweichungen erklären kann. Da das Baumkataster ausschließlich Bäume im öffentlichen Raum verzeichnet, während die LiDAR-Erfassung auch Privat- und Gewerbeflächen abdeckt, wird vorab eine räumliche Filterung durchgeführt. Hierbei wird ein Puffer von 8 m um die Referenzbäume gelegt, wodurch eine gemeinsame valide Maske entsteht, innerhalb derer alle detektierte Baumspitzen für die statistische Auswertung berücksichtigt werden. Die verbleibenden Punktpaare werden in standardisierte Kategorien eingeteilt, aus denen quantitative Kennzahlen zur Bewertung der Positionsgenauigkeit und der geometrischen Abweichung abgeleitet werden \cite{munzingerMappingUrbanForest2022}.
 
 Die positionelle Auswertungen basieren auf folgenden Kategorien und Verhältniswerten \cite{zhangIndividualTreeSegmentation2024}.
 \begin{itemize}
-    \item \textit{True Positives (\ac{TP})} entspricht der Anzahl korrekt detektierte Baumspitzen, die innerhalb des Suchradius einem Katasterbaum zugeordnet wurden.
-    \item \textit{False Positives (\ac{FP})} zählt fälschlicherweise detektierte Baumspitzen ohne korrespondierenden Katastereintrag. Hohe Werte treten primär als Folge von Übersegmentierung auf.
-    \item \textit{False Negatives \ac{FN}} repräsentieren nicht erfasste Katasterbäume, was meist ein Resultat von Untersegmentierung ist.
-    \item \textit{Precision} bestimmt das Verhältnis der korrekt detektierten Bäume zur Gesamtzahl aller gefunden Objekte mittels der Formel $\frac{TP}{TP + FP}$
-    \item \textit{Recall} setzt die korrekt detektierten Bäume in Relation zu allen vorhandenen Katasterbäumen gemäß der Formel $\frac{TP}{TP + FN}$
-    \item \textit {F1-Score} bildet als harmonisches Mittel aus Precision und Recall einen globalen Qualitätsindikator für die Gesamtleistung des Modells.
+    \item True Positives (\ac{TP}) entspricht der Anzahl korrekt detektierte Baumspitzen, die innerhalb des Suchradius einem Katasterbaum zugeordnet wurden.
+    \item False Positives (\ac{FP}) zählt fälschlicherweise detektierte Baumspitzen ohne korrespondierenden Katastereintrag. Hohe Werte treten primär als Folge von Übersegmentierung auf.
+    \item False Negatives \ac{FN} repräsentieren nicht erfasste Katasterbäume, was meist ein Resultat von Untersegmentierung ist.
+    \item Precision bestimmt das Verhältnis der korrekt detektierten Bäume zur Gesamtzahl aller gefunden Objekte mittels der Formel $\frac{TP}{TP + FP}$
+    \item Recall setzt die korrekt detektierten Bäume in Relation zu allen vorhandenen Katasterbäumen gemäß der Formel $\frac{TP}{TP + FN}$
+    \item F1-Score bildet als harmonisches Mittel aus Precision und Recall einen globalen Qualitätsindikator für die Gesamtleistung des Modells.
 \end{itemize}
 
 Für die anschließende geometrische Validierung der Baumhöhe und des Kronendurchmessers werden kontinuierliche Abweichungsmaße berechnet, welche die Differenz zwischen den LiDAR-basierten Berechnungen und den Katasterwerten quantifizieren \cite{munzingerMappingUrbanForest2022} \cite{marcelloPerformanceIndividualTree2024b}.
 \begin{itemize}
-    \item \textit{Person-Korrelationskoeffizient r} beschreibt die Richtung und Stärke des linearen Zusammenhangs der Datenpaare
-    \item \textit{Root Mean Square Error (\ac{RMSE})} erfasst die quadratische gemittelte Abweichung und gewichtete größere Ausreißer über die Formel $\sqrt{\frac{1}{n} \sum_{i=1}^{n} (\hat{y}_i - y_i)^2}$
-    \item \textit{Bias} berechnet den mitteleren Fehler über die Formel $\text{Bias} = \frac{1}{n} \sum_{i=1}^{n} (\hat{y}_i - y_i)$ und zeigt eine systematische Über- oder Unterschätzung der Merkmale auf
+    \item Person-Korrelationskoeffizient r beschreibt die Richtung und Stärke des linearen Zusammenhangs der Datenpaare
+    \item Root Mean Square Error (\ac{RMSE}) erfasst die quadratische gemittelte Abweichung und gewichtete größere Ausreißer über die Formel $\sqrt{\frac{1}{n} \sum_{i=1}^{n} (\hat{y}_i - y_i)^2}$
+    \item Bias berechnet den mitteleren Fehler über die Formel $\text{Bias} = \frac{1}{n} \sum_{i=1}^{n} (\hat{y}_i - y_i)$ und zeigt eine systematische Über- oder Unterschätzung der Merkmale auf
 \end{itemize}

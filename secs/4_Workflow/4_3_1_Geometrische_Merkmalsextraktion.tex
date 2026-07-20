@@ -3,16 +3,16 @@
 Die Extraktion geometrischer Merkmale basiert sowohl auf den 2D-Kronenpolygone als auf den 3D-Messpunkten. Als Bindeglied zwischen Vektordaten und Punktwolken-Segmenten dient dabei die eindeutige ID \cite{munzingerMappingUrbanForest2022}. Abbildung \ref{fig:geom} veranschaulicht, welche Parameter aus den jeweiligen Daten berechnet werden.
 \begin{figure}[htbp]
     \centering
-    \begin{subfigure}[c]{0.4\columnwidth}
+    \begin{subfigure}[c]{0.45\columnwidth}
         \centering
-        \includegraphics[height=0.18\textheight, keepaspectratio]{imgs/2D-Anreicherung.png}
+        \includegraphics[height=0.22\textheight, keepaspectratio]{imgs/2D-Anreicherung.png}
         \caption{Berechnung aus 2D-Polygonen}
         \label{fig:2d}
     \end{subfigure}
     \hspace{0.05\columnwidth}
-    \begin{subfigure}[c]{0.4\columnwidth}
+    \begin{subfigure}[c]{0.45\columnwidth}
         \centering
-        \includegraphics[height=0.18\textheight, keepaspectratio]{imgs/3D-Anreicherung.png}
+        \includegraphics[height=0.22\textheight, keepaspectratio]{imgs/3D-Anreicherung.png}
         \caption{Berechnung aus 3D-Punktwolke}
         \label{fig:3d}
     \end{subfigure}
@@ -22,7 +22,7 @@ Die Extraktion geometrischer Merkmale basiert sowohl auf den 2D-Kronenpolygone a
 
 Zunächst wird durch eine direkte geometrische Auswertung der Polygone wie in Abbildung \ref{fig:2d} die Kronenfläche berechnet \cite{yuIndividualTreeSegmentation2024}. Ausgehend davon lässt sich unter der Annahme einer idealisierten Kreisform der Kronenradius ableiten.
 
-Die vertikalen und volumenbasierten  Strukturparameter erfordern hingegen eine detaillierte Analyse der zugeordneten 3D-Punkte. Hier wurden die in Abbildung \ref{fig:3d} genannten Merkmale extrahiert. Zur Bestimmung der Kronenansatzhöhe wird ein histogrammbasierter Ansatz gewählt, da dieser robust gegenüber Rauschen sowie der abschattungsbedingten geringen Punktdichte im Stammbereich ist. Hierzu teilt der Algorithmus, der in Code \ref{lst:crown_base_height} dargestellt ist, die Höhewerte der Punkte eines Baumes in vertikale Intervalle mit einer Schichtdicke(\textit{slice\_thickness}) von \textit{0,3 m} ein und analysiert die Punktdichte pro Schicht (\textit{counts}) von unten nach oben. Die Grenze des Kronenansatzes wird an der Schwelle (\textit{max\_count}) definiert, an der die Punktdichte erstmals mindestens zehn Prozent (\textit{threshold\_pct}) des Maximalwerts innerhalb des Baums erreicht. Dieser Schwellwert markiert somit den strukturellen Übergang vom spärlich erfassten Stammbereich zum dichten Kronenraum \cite{zotero-item-73}. Befinden sich im Cluster zu wenig Punkte, wird die niedrigste Koordinate (\textit{z\_min\_raw}) zurückgeliefert.
+Die vertikalen und volumenbasierten  Strukturparameter erfordern hingegen eine detaillierte Analyse der zugeordneten 3D-Punkte. Hier wurden die in Abbildung \ref{fig:3d} genannten Merkmale extrahiert. Zur Bestimmung der Kronenansatzhöhe wird ein histogrammbasierter Ansatz gewählt, da dieser robust gegenüber Rauschen sowie der abschattungsbedingten geringen Punktdichte im Stammbereich ist. Hierzu teilt der Algorithmus, der in Code \ref{lst:crown_base_height} dargestellt ist, die Höhewerte der Punkte eines Baumes in vertikale Intervalle mit einer Schichtdicke(\textit{slice\_thickness}) von 0,3 m ein und analysiert die Punktdichte pro Schicht (\textit{counts}) von unten nach oben. Die Grenze des Kronenansatzes wird an der Schwelle (\textit{max\_count}) definiert, an der die Punktdichte erstmals mindestens zehn Prozent (\textit{threshold\_pct}) des Maximalwerts innerhalb des Baums erreicht. Dieser Schwellwert markiert somit den strukturellen Übergang vom spärlich erfassten Stammbereich zum dichten Kronenraum \cite{zotero-item-73}. Befinden sich im Cluster zu wenig Punkte, wird die niedrigste Koordinate (\textit{z\_min\_raw}) zurückgeliefert.
 \input{codes/crown_height.tex}
 Die Kronenhöhe ergibt sich folglich aus der Differenz zwischen der absoluten Höhe der Baumspitze und der ermittelten Kronenansatzhöhe. Das Kronenvolumen wird berechnet, indem eine konvexe Hülle um alle Punkte der jeweiligen Baumkrone gespannt wird \cite{munzingerMappingUrbanForest2022}. 
 
