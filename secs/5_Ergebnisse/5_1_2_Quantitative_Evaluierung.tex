@@ -23,7 +23,7 @@ Der algorithmische Abgleich führt die Positionen der detektierten Baumspitzen m
 
 Die positionelle Auswertung basiert auf folgenden Kategorien und Verhältniswerten \cite{zhangIndividualTreeSegmentation2024}.
 \begin{itemize}
-    \item True Positives (\ac{TP}) entsprechen der Anzahl korrekt detektierter Baumspitzen, die innerhalb des Suchradius einem Katasterbaum zugeordnet wurden.
+    \item True Positives (\ac{TP}) entsprechen der Anzahl korrekt detektierter Baumspitzen, die innerhalb des Suchradius einem Katasterbaum zugeordnet werden.
     \item False Positives (\ac{FP}) erfassen fälschlicherweise detektierte Baumspitzen ohne korrespondierenden Katastereintrag. Hohe Werte treten primär als Folge von Übersegmentierung auf.
     \item False Negatives \ac{FN} repräsentieren nicht erfasste Katasterbäume, was meist ein Resultat von Untersegmentierung ist.
     \item Precision bestimmt das Verhältnis der korrekt detektierten Bäume zur Gesamtzahl aller gefundenen Objekte mittels der Formel $\frac{TP}{TP + FP}$
@@ -33,7 +33,7 @@ Die positionelle Auswertung basiert auf folgenden Kategorien und Verhältniswert
 
 Für die anschließende geometrische Validierung der Baumhöhe und des Kronendurchmessers werden kontinuierliche Abweichungsmaße berechnet, welche die Differenz zwischen den LiDAR-basierten Berechnungen und den Katasterwerten quantifizieren \cite{munzingerMappingUrbanForest2022} \cite{marcelloPerformanceIndividualTree2024b}.
 \begin{itemize}
-    \item Pearson-Korrelationskoeffizient r beschreibt die Richtung und Stärke des linearen Zusammenhangs der Datenpaare
+    \item Pearson-Korrelationskoeffizient r beschreibt die Richtung und Stärke des linearen Zusammenhangs der Datenpaare.
     \item Root Mean Square Error (\ac{RMSE}) erfasst die quadratisch gemittelte Abweichung und gewichtet größere Ausreißer über die Formel $\sqrt{\frac{1}{n} \sum_{i=1}^{n} (\hat{y}_i - y_i)^2}$
-    \item Bias berechnet den mittleren Fehler über die Formel $\text{Bias} = \frac{1}{n} \sum_{i=1}^{n} (\hat{y}_i - y_i)$ und zeigt eine systematische Über- oder Unterschätzung der Merkmale auf
+    \item Bias berechnet den mittleren Fehler über die Formel $\text{Bias} = \frac{1}{n} \sum_{i=1}^{n} (\hat{y}_i - y_i)$ und zeigt eine systematische Über- oder Unterschätzung der Merkmale auf.
 \end{itemize}
